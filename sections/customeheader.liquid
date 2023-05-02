@@ -9,7 +9,7 @@
             </svg>
         </button>
         <div class="mobile-logo">
-            <a href="/"><img src="{{ section.settings.logo | img_url:'master' }}" alt="Vibe Twelve"></a>
+            <a href="/"><img src="{{ section.settings.logo | img_url:'' }}" alt="Vibe Twelve"></a>
         </div>
         <div class="menu-scroll">
             <div class="ot-menu-inner">
@@ -169,7 +169,7 @@ Header Area
                 <div class="col-lg-2 col-6">
                     <div class="header-logo">
                         <a href="index.html">
-                            <img src="assets/img/logo.png" alt="Vibe Twelve">
+                            <img src="{{ section.settings.logo | img_url:'' }}" alt="Vibe Twelve">
                         </a>
                     </div>
                 </div>
