@@ -1,0 +1,71 @@
+  <!--==============================
+Hero Area
+==============================-->
+    <div class="ot-hero-wrapper hero-slider-1">
+        <div class="ot-hero-slide">
+            <div class="ot-hero-bg">
+                {{ section.settings.image | image_url: width: 1920 | image_tag:
+                    loading: 'lazy',
+                    height: height,
+                    sizes: "100vw",
+                    widths: '375, 550, 750, 1100, 1500, 1780, 1920, 3060'
+                  }}
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="h2 hero-title wow fadeInUp" data-wow-delay="0.1s">{{ section.settings.h1}}</h1>
+                    <p class="hero-text wow fadeInUp" data-wow-delay="0.2s">{{ section.settings.p }}</p>
+                    <a href="about.html" class="ot-btn style2 wow fadeInUp" data-wow-delay="0.3s">{{section.settings.btn }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% schema %}
+    {
+        "name": "Banner",
+        "class": "banner",
+        "settings": [
+         {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Bannner image"
+         },
+         {
+            "type": "text",
+            "id": "h1",
+            "label": "Title",
+            "default": "WHAT ARE THOSE?",
+        
+            "placeholder": "WHAT ARE THOSE?"
+         },
+         {
+            "type": "text",
+            "id": "p",
+            "label": "Description",
+            "default": "The way forward for the creative director in fashion presents multiple options, all situated between the pattern-cutter and",
+        
+            "placeholder": "The way forward for the creative director in fashion presents multiple options, all situated between the pattern-cutter and"
+         },
+         {
+            "type": "text",
+            "id": "btn",
+            "label": "Shop Link",
+            "default": "Discover",
+         
+            "placeholder": "Discover"
+         },
+         {
+            "type": "url",
+            "id": "url",
+            "label": "Connect your Page"
+         }
+        ],
+        "presets": [
+            {
+              "name": "Slideshow"
+            }
+            ]
+    }
+{% endschema %}
