@@ -20,12 +20,12 @@
                     <div class="splide__slide">
                         <div class="product-cat2 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="img">
-                             <a href=""> 
-                             {{ block.settings.img | image_url: width: 800 | image_tag:
+                             <a href="{{ section.settigs.coll.url }}"> 
+                             {{ block.settings.img | image_url: width: 900 | image_tag:
                    
                                 height: height,
                                 sizes: "100vw",
-                                widths: '250, 375, 550, 800,'
+                                widths: '250, 375, 550, 800, 900'
                               }}
                             </a> 
                             </div>
@@ -81,9 +81,9 @@
                         "label": "Collection"
                     }
                 ]
-            },
+            }
         ]
-        
+        ,
         "presets": [
             {
               "name": "Featued Collection"
