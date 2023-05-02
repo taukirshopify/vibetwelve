@@ -14,26 +14,33 @@
 
 <div class="section-{{ section.id }}-padding">
     <div class="container">
+        {% comment %} <h2 class="sec-title text-center">This is Section Title</h2> {% endcomment %}
         <div class="splide" id="cat-slider">
             <div class="splide__track">
-                <div class="splide__list">
-                    <div class="splide__slide">
-                        <div class="product-cat2 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="img">
-                             <a href="{{ section.settigs.coll.url }}"> 
-                             {{ block.settings.img | image_url: width: 900 | image_tag:
                    
-                                height: height,
-                                sizes: "100vw",
-                                widths: '250, 375, 550, 800, 900'
-                              }}
-                            </a> 
+                
+                        <div class="splide__list">
+                            {% for block in section.blocks %}
+                            <div class="splide__slide">
+                                <div class="product-cat2 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="img">
+                                     <a href="{{ block.settings.coll.url }}"> 
+                                     {{ block.settings.img | image_url: width: 900 | image_tag:
+                           
+                                        height: height,
+                                        sizes: "100vw",
+                                        widths: '250, 375, 550, 800, 900'
+                                      }}
+                                    </a> 
+                                    </div>
+                                    <a href="{{ block.settings.coll.url }}" class="category">{{block.settings.coll}}</a>
+                                </div>
                             </div>
-                            <a href="{{ section.settings.coll.url }}" class="category">{{section.settings.coll}}</a>
+                        {% endfor %}
                         </div>
-                    </div>
-       
-                </div>
+                 
+            
+
             </div>
         </div>
     </div>
