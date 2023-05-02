@@ -1,1 +1,48 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"footer":{"type":"footer","blocks":{"4e81e7c5-42f6-402a-9296-52d27f567d5e":{"type":"link_list","settings":{"heading":"Quick links","menu":"footer"}}},"block_order":["4e81e7c5-42f6-402a-9296-52d27f567d5e"],"settings":{"color_scheme":"background-1","newsletter_enable":true,"newsletter_heading":"Subscribe to our emails","enable_follow_on_shop":true,"show_social":true,"enable_country_selector":true,"enable_language_selector":true,"payment_enable":true,"show_policy":false,"margin_top":36,"padding_top":36,"padding_bottom":36}}},"order":["footer"]}
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "5ab0bdac-0113-45a2-a0c3-017855089f8f": {
+      "type": "custome-banner",
+      "settings": {
+        "h1": "WHAT ARE THOSE?",
+        "p": "The way forward for the creative director in fashion presents multiple options, all situated between the pattern-cutter and",
+        "btn": "Discover",
+        "url": ""
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "4e81e7c5-42f6-402a-9296-52d27f567d5e": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "4e81e7c5-42f6-402a-9296-52d27f567d5e"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "newsletter_enable": true,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": false,
+        "margin_top": 36,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "5ab0bdac-0113-45a2-a0c3-017855089f8f",
+    "footer"
+  ]
+}
