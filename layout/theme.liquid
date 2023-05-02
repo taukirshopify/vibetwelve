@@ -43,9 +43,11 @@
   document.head.appendChild(script);
 });
 </script>
+<link rel="stylesheet"  rel="preconnect"  href="{{ 'base.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
 <link rel="stylesheet"  rel="preconnect"  href="{{ 'bootstrap.min.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
 <link rel="stylesheet" rel="preconnect"  href="{{ 'splide.min.css ' | asset_url }}" media="none" onload="if(media!='all')media='all'">
 <link rel="stylesheet"  rel="preconnect" href="{{ 'style.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
+<noscript><link rel="stylesheet" href="{{ 'base.css' | asset_url }}"></noscript>
 <noscript><link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}"></noscript>
 <noscript><link rel="stylesheet" href="{{ 'splide.min.css' | asset_url }}"></noscript>
 <noscript><link rel="stylesheet" href="{{ 'style.css' | asset_url }}"></noscript>
@@ -240,7 +242,7 @@
       }
     {% endstyle %}
 
-    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {% comment %} {{  | asset_url | stylesheet_tag }} {% endcomment %}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
