@@ -9,7 +9,14 @@
             </svg>
         </button>
         <div class="mobile-logo">
-            <a href="/"><img src="{{ section.settings.logo | img_url:'' }}" alt="Vibe Twelve"></a>
+            <a href="/">
+                
+                {{ section.settings.logo | image_url: width: 290 | image_tag:
+                    loading: 'lazy',
+                    sizes: "100vw",
+                    widths: '280,290'
+                  }}
+            </a>
         </div>
         <div class="menu-scroll">
             <div class="ot-menu-inner">
