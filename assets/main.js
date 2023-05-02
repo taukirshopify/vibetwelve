@@ -201,5 +201,7 @@
   });
 
   new WOW().init();
- 
+  $( document ).ready(function() {
+    console.log( "ready!" );
+});
 })(jQuery);
