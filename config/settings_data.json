@@ -149,6 +149,7 @@
       "custome-footer": {
         "type": "custome-footer",
         "settings": {
+          "img": "shopify:\/\/shop_images\/logo.png",
           "contact": "Contact us",
           "location": "135 Westwood Ave. Westwood NJ 07675",
           "mail": "info@vibetwelve.com",
