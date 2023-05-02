@@ -35,7 +35,6 @@
   '{{ 'jquery-3.6.0.min.js' | asset_url }}',
    '{{ 'splide.min.js' | asset_url }}',
     '{{ 'wow.min.js' | asset_url }}',
-,
   '{{ 'main.js' | asset_url }}'
 ].forEach(function(src) {
   var script = document.createElement('script');
@@ -44,12 +43,12 @@
   document.head.appendChild(script);
 });
 </script>
-<link rel="stylesheet" href="bootstrap.min.css" media="none" onload="if(media!='all')media='all'">
-<link rel="stylesheet" href="splide.min.css" media="none" onload="if(media!='all')media='all'">
-<link rel="stylesheet" href="style.css" media="none" onload="if(media!='all')media='all'">
-<noscript><link rel="stylesheet" href="bootstrap.min.css"></noscript>
-<noscript><link rel="stylesheet" href="splide.min.css"></noscript>
-<noscript><link rel="stylesheet" href="style.css"></noscript>
+<link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
+<link rel="stylesheet" href="{{ 'splide.min.css ' | asset_url }}" media="none" onload="if(media!='all')media='all'">
+<link rel="stylesheet" href="{{ 'style.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
+<noscript><link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}"></noscript>
+<noscript><link rel="stylesheet" href="{{ 'splide.min.css' | asset_url }}"></noscript>
+<noscript><link rel="stylesheet" href="{{ 'style.css' | asset_url }}"></noscript>
 
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>

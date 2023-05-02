@@ -9,7 +9,7 @@
             </svg>
         </button>
         <div class="mobile-logo">
-            <a href="index.html"><img src="assets/img/logo.png" alt="Vibe Twelve"></a>
+            <a href="/"><img src="{{ section.settings.logo }}" alt="Vibe Twelve"></a>
         </div>
         <div class="menu-scroll">
             <div class="ot-menu-inner">
@@ -222,3 +222,19 @@ Header Area
 <!--==============================
 Hero Area
 ==============================-->
+
+
+
+{% schema %}
+    {
+        "name": "Header",
+        "class": "header",
+        "settings": [
+           {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Please select your logo"
+           }
+        ]
+    }
+{% endschema %}
