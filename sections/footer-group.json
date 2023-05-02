@@ -2,15 +2,6 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "5ab0bdac-0113-45a2-a0c3-017855089f8f": {
-      "type": "custome-banner",
-      "settings": {
-        "h1": "WHAT ARE THOSE?",
-        "p": "The way forward for the creative director in fashion presents multiple options, all situated between the pattern-cutter and",
-        "btn": "Discover",
-        "url": ""
-      }
-    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -42,7 +33,6 @@
     }
   },
   "order": [
-    "5ab0bdac-0113-45a2-a0c3-017855089f8f",
     "footer"
   ]
 }
