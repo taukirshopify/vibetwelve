@@ -145,6 +145,19 @@
         "settings": {
           "logo": "shopify:\/\/shop_images\/logo.png"
         }
+      },
+      "custome-footer": {
+        "type": "custome-footer",
+        "settings": {
+          "img": "shopify:\/\/shop_images\/logo.png",
+          "contact": "Contact us",
+          "location": "135 Westwood Ave. Westwood NJ 07675",
+          "mail": "info@vibetwelve.com",
+          "tell": "(201) 497-3818",
+          "sub1": "",
+          "sub4": "footer-bottom",
+          "p": "© Vibe Tweleve 2023, All Rights Reserved"
+        }
       }
     },
     "content_for_index": [
