@@ -29,6 +29,27 @@
 
     {% render 'meta-tags' %}
 
+
+<script type="text/javascript">
+[
+  '{{ 'jquery-3.6.0.min.js' | asset_url }}',
+  '{{ 'main.js' | asset_url }}'
+].forEach(function(src) {
+  var script = document.createElement('script');
+  script.src = src;
+  script.async = false; 
+  document.head.appendChild(script);
+});
+</script>
+
+<script>
+
+// A $( document ).ready() block.
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
+</script>
+
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
