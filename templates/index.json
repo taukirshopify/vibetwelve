@@ -42,8 +42,8 @@
     "72586b2f-4702-4b7f-87fd-3f06464c176d": {
       "type": "custome-homeblog",
       "settings": {
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_top": 56,
+        "padding_bottom": 60,
         "home_blog": "news"
       }
     },
