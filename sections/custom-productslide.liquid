@@ -38,6 +38,9 @@
                                 sizes: "100vw",
                                 widths: '250, 330,'
                               }}
+                              {% if sold_out %}
+                              <span class="tag ot-btn">Sold out</span>
+                              {% endif %}
                           </div>
                           <div class="product-content">
                               <p class="subtitle">{{product.vendor}}</p>
