@@ -1557,5 +1557,56 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       }
     ]
-  }
+  },
+  {
+    "name": "Running Slide",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text1",
+        "label": "Slide One",
+        "default": "GET 20% OFF YOUR FIRST ORDER. 기간 한정 첫 구매 시 20% 할인."
+      },
+      {
+        "type": "text",
+        "id": "text2",
+        "label": "Slide One",
+        "default": "NEW ARRIVALS SS23 COLLECTION. SS23 신상품 입고."
+      },
+      {
+        "type": "text",
+        "id": "text3",
+        "label": "Slide One",
+        "default": "GET 20% OFF YOUR FIRST ORDER. 기간 한정 첫 구매 시 20% 할인."
+      },
+      {
+        "type": "text",
+        "id": "text4",
+        "label": "Slide One",
+        "default": "GET 20% OFF YOUR FIRST ORDER. 기간 한정 첫 구매 시 20% 할인."
+      },
+      {
+        "type": "text",
+        "id": "text5",
+        "label": "Slide One",
+        "default": "NEW ARRIVALS SS23 COLLECTION. SS23 신상품 입고."
+      },
+      {
+        "type": "text",
+        "id": "text6",
+        "label": "Slide One",
+        "default": "GET 20% OFF YOUR FIRST ORDER. 기간 한정 첫 구매 시 20% 할인."
+      },
+      {
+        "type": "text",
+        "id": "text7",
+        "label": "Slide One",
+        "default": "NEW ARRIVALS SS23 COLLECTION. SS23 신상품 입고."
+      }
+
+    ]
+
+}
+
+
 ]
