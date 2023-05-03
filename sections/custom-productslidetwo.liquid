@@ -29,25 +29,60 @@
 
                
                   <div class="splide__slide">
-                      <a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp" data-wow-delay="0.2s">
+                      {% comment %} <a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp" data-wow-delay="0.2s">
                           <div class="product-img">
                             
-                              {{ product.featured_image.src | image_url: width: 350 | image_tag:
-                           
-                                height: height,
-                          
-                                widths: '250, 350,'
-                              }}
+                             
                               {% if sold_out %}
                               <span class="tag ot-btn">Sold out</span>
                               {% endif %}
                           </div>
-                          <div class="product-content">
-                              <p class="subtitle">{{product.vendor}}</p>
-                              <h3 class="product-title">{{ product.title }}</h3>
-                              <p class="price">{{ product.price | money }}</p>
-                          </div>
-                      </a>
+                       
+                      </a> {% endcomment %}
+                      <div class="ot-product  wow fadeInUp" data-wow-delay="0.1s">
+                        <a href="shop-details.html" class="product-img">
+                        {% if product.images.size > 1 %}
+                          {{ product.featured_image.src | image_url: width: 350 | image_tag:
+                           
+                            height: height,
+                      
+                            widths: '250, 350,'
+                          }}
+                          {% for image in product.images limit: 1 offset: 1 %}
+                          <img class="secondry-image" alt="" src="{{ image.src | img_url: 'large' }}">
+
+
+                          
+                          {{ product.featured_image.src | image_url: width: 350 | image_tag:
+                           
+                            height: height,
+                            class:'hover-img',
+                            widths: '250, 350,'
+                          }}
+                      
+
+                          {% endfor %}
+                          
+                          {% else %}
+                          {{ product.featured_image.src | image_url: width: 350 | image_tag:
+                           
+                            height: height,
+                      
+                            widths: '250, 350,'
+                          }}
+
+
+
+                          {% endif %}
+                        </a>
+                   
+                        <div class="product-content">
+                          <p class="subtitle">{{product.vendor}}</p>
+                          <h3 class="product-title">{{ product.title }}</h3>
+                          <p class="price">{{ product.price | money }}</p>
+                      </div>
+
+                    </div>
                   </div>
 
 

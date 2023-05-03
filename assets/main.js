@@ -193,7 +193,12 @@
         autoScroll: {
           speed: 0.5,
         },
-
+        grid: {
+          rows: 2,
+          gap : {
+            row: '1rem',
+          },
+        },
         breakpoints: {
           1199: {
             perPage: 3,
