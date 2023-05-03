@@ -838,6 +838,18 @@ h6 {
   fill: var(--white-color);
 }
 
+.badge {
+  font-size: 12px;
+  background-color: var(--title-color);
+  color: var(--white-color);
+  border-radius: 50%;
+  padding: 0.4em 0.6em;
+  line-height: 0.9em;
+  position: absolute;
+  top: 7px;
+  right: -13px;
+}
+
 /*------------------- 3.4. Font -------------------*/
 .font-title {
   font-family: var(--title-font);
@@ -1199,6 +1211,11 @@ a.text-body:hover {
   background-color: transparent;
   border: none;
   font-size: 20px;
+  position: relative;
+}
+
+.simple-icon .badge {
+  top: -8px;
 }
 
 .simple-icon.ot-menu-toggle {
@@ -1865,6 +1882,7 @@ a.text-body:hover {
 }
 
 .blog-card .blog-img {
+  display: block;
   margin-bottom: 30px;
   position: relative;
 }
@@ -2086,6 +2104,28 @@ a.text-body:hover {
   background-size: cover;
 }
 
+.splide__arrow {
+  background-color: transparent;
+  border: 1px solid var(--theme-color);
+  height: 40px;
+  width: 40px;
+  border-radius: 0;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+.splide__arrow path {
+  fill: var(--theme-color);
+}
+
+.splide__arrow:hover {
+  background-color: var(--theme-color);
+}
+
+.splide__arrow:hover path {
+  fill: var(--white-color);
+}
+
 /* Medium devices */
 @media (max-width: 991px) {
   .form-select {
@@ -2112,6 +2152,7 @@ a.text-body:hover {
 
 .product-img {
   overflow: hidden;
+  display: block;
 }
 
 .product-img img {
@@ -2208,12 +2249,6 @@ a.text-body:hover {
   transition: 0.4s ease-in-out;
 }
 
-.ot-product.style2:hover .product-img img {
-  -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
 .ot-product.style2:hover .product-img:before, .ot-product.style2:hover .product-img:after {
   visibility: visible;
   opacity: 0.2;
@@ -2235,10 +2270,6 @@ a.text-body:hover {
           transform: translateY(0);
 }
 
-.ot-product.sold-out .product-img img {
-  opacity: 0.4;
-}
-
 .ot-product:hover .hover-img {
   visibility: visible;
   opacity: 1;
@@ -2253,6 +2284,10 @@ a.text-body:hover {
 
 .product-cat {
   position: relative;
+}
+
+.product-cat .img {
+  display: block;
 }
 
 .product-cat .img img {
@@ -2279,6 +2314,7 @@ a.text-body:hover {
 
 .product-cat2 .img {
   overflow: hidden;
+  display: block;
 }
 
 .product-cat2 .img img {

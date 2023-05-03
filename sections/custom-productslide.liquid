@@ -19,90 +19,36 @@
       <div class="splide" id="product-slider1">
           <div class="splide__track">
               <div class="splide__list">
+              
+                {% assign collection = collections[section.settings.collection] %}
+                {% for product in collection.products limit: section.settings.p_limit %}
+                  {% assign sold_out = true %}
+                  {% if product.available %}
+                  {% assign sold_out = false %}
+                  {% endif %}
 
+                
                   <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2  wow fadeInUp" data-wow-delay="0.1s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_1.jpg" alt="Product Image">
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
-
-
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2  wow fadeInUp" data-wow-delay="0.2s">
+                      <a href="{{ product.url }}" class="ot-product style2  wow fadeInUp" data-wow-delay="0.2s">
                           <div class="product-img">
                               <img src="assets/img/product/product_3_2.jpg" alt="Product Image">
+                              {{ product.settings.img | image_url: width: 330 | image_tag:
+                           
+                                height: height,
+                                sizes: "100vw",
+                                widths: '250, 330,'
+                              }}
                           </div>
                           <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
+                              <p class="subtitle">{{proudct.vendor}}</p>
+                              <h3 class="product-title">{{proudct.title}}</h3>
+                              <p class="price">{{ product.price | money }}</p>
                           </div>
                       </a>
                   </div>
 
 
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2  wow fadeInUp" data-wow-delay="0.3s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_3.jpg" alt="Product Image">
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
-
-
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2  wow fadeInUp" data-wow-delay="0.4s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_4.jpg" alt="Product Image">
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
-
-
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2  wow fadeInUp" data-wow-delay="0.5s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_5.jpg" alt="Product Image">
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
-
-
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2  wow fadeInUp" data-wow-delay="0.6s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_6.jpg" alt="Product Image">
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
-
+              
 
                   <div class="splide__slide">
                       <a href="shop-details.html" class="ot-product style2 sold-out wow fadeInUp" data-wow-delay="0.7s">
@@ -117,79 +63,9 @@
                           </div>
                       </a>
                   </div>
+                {% endfor %}
 
-
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2 sold-out wow fadeInUp" data-wow-delay="0.8s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_8.jpg" alt="Product Image">
-                              <span class="tag ot-btn">Sold out</span>
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
-
-
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2 sold-out wow fadeInUp" data-wow-delay="0.9s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_9.jpg" alt="Product Image">
-                              <span class="tag ot-btn">Sold out</span>
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
-
-
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2  wow fadeInUp" data-wow-delay="0.10s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_10.jpg" alt="Product Image">
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
-
-
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2  wow fadeInUp" data-wow-delay="0.11s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_11.jpg" alt="Product Image">
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
-
-
-                  <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2 sold-out wow fadeInUp" data-wow-delay="0.12s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_12.jpg" alt="Product Image">
-                              <span class="tag ot-btn">Sold out</span>
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div>
+               
 
               </div>
           </div>
@@ -228,6 +104,12 @@
             "type": "collection",
             "id": "collection",
             "label": "Select your Collection"
+         },
+         {
+          "type": "text",
+          "id": "p_limit",
+          "label": "Product Limite",
+          "placeholder": "5"
          }
         ],
         "presets": [
