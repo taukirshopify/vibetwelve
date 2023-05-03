@@ -178,6 +178,36 @@
       } );
       psplide.mount(window.splide.Extensions);    
   }
+  var splideCheck4 = document.getElementById("product-slidertwo");
+  if (splideCheck4) {
+      var pssplide = new Splide( '#product-slidertwo', {
+        type: 'loop',
+        perPage: 4,
+        perMove: 1,
+        drag   : 'free',
+        arrows: false,
+        // autoplay:true,
+        // speed:500,
+        pagination: false,
+        gap: 0,
+        autoScroll: {
+          speed: 0.5,
+        },
+
+        breakpoints: {
+          1199: {
+            perPage: 3,
+          },
+          992: {
+            perPage: 2,
+          },
+          767: {
+            perPage: 1.5,
+          },
+        }
+      } );
+      pssplide.mount(window.splide.Extensionstwo);    
+  }
   
   /*----------- 03. Content Toggle ----------*/
   $('.content-expand').on('click', function (e) {
