@@ -32,11 +32,11 @@
                       <a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp" data-wow-delay="0.2s">
                           <div class="product-img">
                             
-                              {{ product.featured_image.src | image_url: width: 330 | image_tag:
+                              {{ product.featured_image.src | image_url: width: 300 | image_tag:
                            
                                 height: height,
                                 sizes: "100vw",
-                                widths: '250, 330,'
+                                widths: '250, 300,'
                               }}
                               {% if sold_out %}
                               <span class="tag ot-btn">Sold out</span>
