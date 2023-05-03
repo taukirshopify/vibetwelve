@@ -55,10 +55,19 @@
             "btn_url": "",
             "img": "shopify:\/\/shop_images\/cat_1_2.jpg"
           }
+        },
+        "6c683e2f-a6a9-4ecc-991d-70bd7059516d": {
+          "type": "Benner",
+          "settings": {
+            "btn": "Discover",
+            "btn_url": "",
+            "img": "shopify:\/\/shop_images\/cat_1_1.jpg"
+          }
         }
       },
       "block_order": [
-        "f2cd0163-4a9a-4caa-92fc-2c5e3d5874ce"
+        "f2cd0163-4a9a-4caa-92fc-2c5e3d5874ce",
+        "6c683e2f-a6a9-4ecc-991d-70bd7059516d"
       ],
       "settings": {
         "padding_top": 0,
