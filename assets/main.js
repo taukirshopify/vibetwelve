@@ -153,9 +153,17 @@
         type: 'loop',
         perPage: 4,
         perMove: 1,
-        arrows: true,
+        drag   : 'free',
+        arrows: false,
+        // autoplay:true,
+        pauseOnHover:true,  
+        // speed:500,
         pagination: false,
         gap: 20,
+        autoScroll: {
+          speed: 0.5,
+        },
+
         breakpoints: {
           1199: {
             perPage: 3,
@@ -168,7 +176,7 @@
           },
         }
       } );
-      psplide.mount();    
+      psplide.mount(window.splide.Extensions);    
   }
   
   /*----------- 03. Content Toggle ----------*/
