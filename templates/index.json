@@ -99,8 +99,8 @@
     "c3ab3074-4b9c-49b2-ad5d-cc7b8c5892ec": {
       "type": "custom-productslidetwo",
       "settings": {
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_top": 24,
+        "padding_bottom": 20,
         "collection": "frontpage",
         "p_limit": "12"
       }
