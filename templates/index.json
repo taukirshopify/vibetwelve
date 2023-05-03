@@ -18,7 +18,10 @@
     "cea5b9ae-7ed2-4888-bc7f-d5845d84a31b": {
       "type": "custom-productslide",
       "settings": {
-        "collection": "frontpage"
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "collection": "frontpage",
+        "p_limit": "10"
       }
     },
     "4914e2b7-12e1-4652-b03d-8a55cd949117": {
