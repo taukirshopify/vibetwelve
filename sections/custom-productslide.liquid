@@ -35,7 +35,7 @@
                               {{ product.featured_image.src | image_url: width: 350 | image_tag:
                            
                                 height: height,
-                            
+                                loading: 'lazy',
                                 widths: '250, 350,'
                               }}
                               {% if sold_out %}
