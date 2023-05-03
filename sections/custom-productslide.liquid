@@ -29,7 +29,7 @@
 
                 
                   <div class="splide__slide">
-                      <a href="{{ product.url }}" class="ot-product style2  wow fadeInUp" data-wow-delay="0.2s">
+                      <a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp" data-wow-delay="0.2s">
                           <div class="product-img">
                             
                               {{ product.featured_image.src | image_url: width: 330 | image_tag:
@@ -40,8 +40,8 @@
                               }}
                           </div>
                           <div class="product-content">
-                              <p class="subtitle">{{proudct.vendor}}</p>
-                              <h3 class="product-title">{{proudct.title}}</h3>
+                              <p class="subtitle">{{product.vendor}}</p>
+                              <h3 class="product-title">{{ product.title }}</h3>
                               <p class="price">{{ product.price | money }}</p>
                           </div>
                       </a>
