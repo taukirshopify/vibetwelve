@@ -35,7 +35,7 @@
             <div class="col-md-6 wow fadeInUp" data-wow-delay="0.{% increment my_counter %}s">
                 <div class="blog-card">
                     <a href="{{ article.url }}" class="blog-img">
-                        {{ block.settings.img | image_url: width: 650 | image_tag:
+                        {{ article.settings.img | image_url: width: 650 | image_tag:
                            
                             height: height,
                             sizes: "100vw",
@@ -52,7 +52,7 @@
                     
                   
                         <h3 class="blog-title"><a href="blog-details.html">{{ article.title }}</a></h3>
-                        <p class="blog-text">{{ article.content | truncatewords: 10 }}</p>
+                        <p class="blog-text">{{ article.content | truncatewords: 15 }}</p>
                     </div>
                 </div>
             </div>
