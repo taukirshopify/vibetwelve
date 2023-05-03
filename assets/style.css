@@ -1435,8 +1435,12 @@ a.text-body:hover {
   -webkit-transform-origin: top center;
       -ms-transform-origin: top center;
           transform-origin: top center;
-  -webkit-transition: margin-top 0.4s ease-in-out 0s, visibility 0.4s ease-in-out 0s, opacity 0.4s ease-in-out 0s, z-index 0s;
-  transition: margin-top 0.4s ease-in-out 0s, visibility 0.4s ease-in-out 0s, opacity 0.4s ease-in-out 0s, z-index 0s;
+  -webkit-transition: margin-top 0.4s ease-in-out 0s,
+ visibility 0.4s ease-in-out 0s, opacity 0.4s ease-in-out 0s,
+ z-index 0s;
+  transition: margin-top 0.4s ease-in-out 0s,
+ visibility 0.4s ease-in-out 0s, opacity 0.4s ease-in-out 0s,
+ z-index 0s;
 }
 
 .main-menu ul.sub-menu {
@@ -2202,7 +2206,7 @@ a.text-body:hover {
   font-size: 12px;
   font-weight: 400;
   color: var(--body-color);
-  margin-bottom: -0.3em;
+  /* margin-bottom: -0.3em; */
 }
 
 .ot-product.style2 {

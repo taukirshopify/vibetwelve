@@ -186,8 +186,8 @@
         perMove: 1,
         drag   : 'free',
         arrows: false,
-        // autoplay:true,
-        // speed:500,
+      autoplay:true,
+        speed:500,
         pagination: false,
         gap: 0,
         autoScroll: {
@@ -195,9 +195,9 @@
         },
         grid: {
           rows: 2,
-          // gap : {
-          //   row: '2rem',
-          // },
+          gap : {
+            row: '1rem',
+          },
         },
         breakpoints: {
           1199: {
@@ -208,6 +208,12 @@
           },
           767: {
             perPage: 1.5,
+            grid: {
+              rows: 1,
+              // gap : {
+              //   row: '2rem',
+              // },
+            },
           },
         }
       } );
