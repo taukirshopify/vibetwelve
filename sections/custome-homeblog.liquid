@@ -36,7 +36,7 @@
                 <div class="blog-card">
                     <a href="{{ article.url }}" class="blog-img">
                         {{ article | image_url: width: 630 | image_tag:
-                           
+                            loading: 'lazy',
                             height: height,
                             widths: '250, 375, 400,630'
                           }}

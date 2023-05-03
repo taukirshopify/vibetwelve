@@ -49,7 +49,7 @@
                              {% else %}  
 
                              {{ image | image_url: width: 350 | image_tag:
-                           
+                              loading: 'lazy',
                               height: height,
                               class:'hover-img',
                               widths: '250, 350,'
@@ -65,7 +65,7 @@
                           {% else %}
 
                           {{ product.featured_image.src | image_url: width: 350 | image_tag:
-                           
+                            loading: 'lazy',
                             height: height,
                       
                             widths: '250, 350,'

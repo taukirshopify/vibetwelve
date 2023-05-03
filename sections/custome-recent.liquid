@@ -26,7 +26,7 @@
                                     <div class="img">
                                      <a href="{{ block.settings.coll.url }}"> 
                                      {{ block.settings.img | image_url: width: 400 | image_tag:
-                           
+                                      loading: 'lazy',
                                         height: height,
                                         sizes: "100vw",
                                         widths: '250, 375, 400,'
