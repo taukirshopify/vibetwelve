@@ -42,28 +42,34 @@
                       <div class="ot-product  wow fadeInUp" data-wow-delay="0.1s">
                         <a href="shop-details.html" class="product-img">
                         {% if product.images.size > 1 %}
-                          {{ product.featured_image.src | image_url: width: 350 | image_tag:
+           
+                          {% for image in product.images limit: 2 %}
+               
+
+                    {% if forloop.index == 1 %}
+                    
+                            {{ image | image_url: width: 350 | image_tag:
                            
-                            height: height,
-                      
-                            widths: '250, 350,'
-                          }}
-                          {% for image in product.images limit: 1 offset: 1 %}
-                
+                              height: height,
+                  
+                              widths: '250, 350,'
+                            }}
+                             {% else %}  
 
-
+                             {{ image | image_url: width: 350 | image_tag:
+                           
+                              height: height,
+                              class:'hover-img',
+                              widths: '250, 350,'
+                            }}
+                           {% endif %} 
                           
-                          {{ product.featured_image.src | image_url: width: 350 | image_tag:
-                           
-                            height: height,
-                            class:'hover-img',
-                            widths: '250, 350,'
-                          }}
-                      
+                         
 
                           {% endfor %}
                           
                           {% else %}
+
                           {{ product.featured_image.src | image_url: width: 350 | image_tag:
                            
                             height: height,
@@ -75,7 +81,14 @@
 
                           {% endif %}
                         </a>
-                   
+                   {% comment %} {% if product.images.size > 1 %}
+  <img class="primary-image" alt="" src="{{ product.featured_image.src | img_url: 'large' }}">
+  {% for image in product.images limit: 1 offset: 1 %}
+  <img class="secondry-image" alt="" src="{{ image.src | img_url: 'large' }}">
+  {% endfor %}
+  {% else %}
+  <img class="" alt="" src="{{ product.featured_image.src | img_url: 'large' }}">
+  {% endif %} {% endcomment %}
                         <div class="product-content">
                           <p class="subtitle">{{product.vendor}}</p>
                           <h3 class="product-title">{{ product.title }}</h3>

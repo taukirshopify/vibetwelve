@@ -195,9 +195,9 @@
         },
         grid: {
           rows: 2,
-          gap : {
-            row: '1rem',
-          },
+          // gap : {
+          //   row: '2rem',
+          // },
         },
         breakpoints: {
           1199: {
