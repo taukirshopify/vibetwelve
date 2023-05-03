@@ -10,6 +10,11 @@
         "url": "shopify:\/\/collections"
       }
     },
+    "9848331a-a568-4790-8c67-e7126c8bb8ea": {
+      "type": "custome-running",
+      "settings": {
+      }
+    },
     "4914e2b7-12e1-4652-b03d-8a55cd949117": {
       "type": "featured-banner",
       "blocks": {
@@ -85,6 +90,7 @@
   },
   "order": [
     "ebb76d87-d0dc-4205-adda-9c2cc13caf5a",
+    "9848331a-a568-4790-8c67-e7126c8bb8ea",
     "4914e2b7-12e1-4652-b03d-8a55cd949117",
     "72586b2f-4702-4b7f-87fd-3f06464c176d",
     "31bbb9bf-7a41-4baf-b729-eb7306fae9a2"
