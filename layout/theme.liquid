@@ -29,8 +29,8 @@
 
     {% render 'meta-tags' %}
 
-    <link rel="preload" as="script" href="{{ 'jquery-3.6.0.min.js' | asset_url }}">
-    
+    {% comment %} <link rel="preload" as="script" href="{{ 'jquery-3.6.0.min.js' | asset_url }}"> {% endcomment %}
+
 <script type="text/javascript" defer="defer">
 [
   '{{ 'jquery-3.6.0.min.js' | asset_url }}',
