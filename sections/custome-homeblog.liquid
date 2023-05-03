@@ -43,7 +43,14 @@
                           }}
                     </a>
                     <div class="blog-content">
-                        <a href="{{ article.url }}" class="category">{{ article.author }}</a>
+               
+                    
+                        {% for tag in article.tags %}
+                            {% unless forloop.first %} <a href="{{ article.url }}" class="category"> {{ tag }}</a>{% endunless %}
+                            {% endfor %}
+                    
+                    
+                  
                         <h3 class="blog-title"><a href="blog-details.html">{{ article.title }}</a></h3>
                         <p class="blog-text">{{ article.content | truncatewords: 10 }}</p>
                     </div>
