@@ -1052,6 +1052,30 @@ class ProductRecommendations extends HTMLElement {
           if (html.querySelector('.grid__item')) {
             this.classList.add('product-recommendations--loaded');
           }
+          var splideCheck1 = document.getElementById("related-slider");
+          if (splideCheck1) {
+              var splide = new Splide( '#related-slider', {
+                type   : 'loop',
+                perPage: 4,
+                perMove: 1,
+                arrows: false,
+                pagination: false,
+                gap: 15,
+                breakpoints: {
+                  1199: {
+                    perPage: 3,
+                  },
+                  992: {
+                    perPage: 2,
+                  },
+                  575: {
+                    perPage: 1,
+                  },
+                }
+              } );
+              splide.mount();
+              
+          };
         })
         .catch(e => {
           console.error(e);

@@ -98,30 +98,7 @@
   $('.ot-menu-wrapper').otmobilemenu();
 
   /*----------- 02. Slider Activations ----------*/
-  var splideCheck1 = document.getElementById("related-slider");
-  if (splideCheck1) {
-      var splide = new Splide( '#related-slider', {
-        type   : 'loop',
-        perPage: 4,
-        perMove: 1,
-        arrows: false,
-        pagination: false,
-        gap: 15,
-        breakpoints: {
-          1199: {
-            perPage: 3,
-          },
-          992: {
-            perPage: 2,
-          },
-          575: {
-            perPage: 1,
-          },
-        }
-      } );
-      splide.mount();
-      
-  }
+
 
   var splideCheck2 = document.getElementById("cat-slider");
   if (splideCheck2) {
