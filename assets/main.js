@@ -230,7 +230,6 @@
         type            : 'loop',
         rewind          : false,
         fixedWidth      : 90,
-        fixedHeight     : 90,
         isNavigation    : true,
         gap             : 10,
         focus           : 'center',
@@ -244,7 +243,7 @@
         breakpoints : {
           640: {
             fixedWidth  : 70,
-            fixedHeight : 70,
+           
           },
         },
       } );

@@ -3,4 +3,4 @@ https://vibe-twelve.myshopify.com
 +++++++
 
 
-shopify login --store vibe-twelve.myshopify.com
+shopify theme dev --store vibe-twelve
