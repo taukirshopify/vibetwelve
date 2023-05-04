@@ -283,8 +283,8 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-  {% sections 'header-group' %} 
-    {% comment %} {% section 'customeheader' %} {% endcomment %}
+  {% comment %} {% sections 'header-group' %}  {% endcomment %}
+ {% section 'customeheader' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
