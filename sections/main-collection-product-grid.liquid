@@ -27,7 +27,7 @@
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
-      <facet-filters-form class="facets facets-vertical-sort page-width small-hide no-js-hidden">
+      <facet-filters-form class="facets facets-vertical-sort container small-hide no-js-hidden">
         <form class="facets-vertical-form" id="FacetSortForm">
           <div class="facet-filters sorting caption">
             <div class="facet-filters__field">
@@ -97,13 +97,13 @@
       </facet-filters-form>
     {%- endif -%}
 
-    <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
+    <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical container{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside
           aria-labelledby="verticalTitle"
-          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
+          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} container{% endif %}"
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
@@ -119,7 +119,7 @@
 
       <div class="product-grid-container" id="ProductGridContainer">
         {%- if collection.products.size == 0 -%}
-          <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+          <div class="collection collection--empty container" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
             <div class="title-wrapper center">
               <h2 class="title title--primary">
@@ -133,15 +133,14 @@
             </div>
           </div>
         {%- else -%}
-          <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
+          <div class="collection{% if section.settings.filter_type != 'vertical' %} container{% endif %}">
             <div class="loading-overlay gradient"></div>
 
-            <ul
+            <div
               id="product-grid"
               data-id="{{ section.id }}"
               class="
-                grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
-                grid--{{ section.settings.columns_desktop }}-col-desktop
+                row
               "
             >
               {%- for product in collection.products -%}
@@ -149,7 +148,7 @@
                 {%- if forloop.index > 2 -%}
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
-                <li class="grid__item">
+                <div class="col-lg-4 col-sm-6">
                   {% comment %} {% render 'card-product',
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
@@ -162,7 +161,7 @@
                   %} {% endcomment %}
 
 
-                  <div class="col-lg-4 col-sm-6">
+                 
                     <a href="shop-details.html" class="ot-product style2 ">
                         <div class="product-img">
                             
@@ -178,10 +177,12 @@
                             <p class="price">{{ product.price | money }}</p>
                         </div>
                     </a>
+                 
+
+
                   </div>
-                </li>
               {%- endfor -%}
-            </ul>
+            </div>
 
             {%- if paginate.pages > 1 -%}
               {% render 'pagination', paginate: paginate, anchor: '' %}
@@ -350,3 +351,14 @@
   ]
 }
 {% endschema %}
+
+
+
+
+<style>
+  .ot-product.style2 {
+ 
+    padding: 10px 0;
+}
+
+</style>

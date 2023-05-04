@@ -15,8 +15,8 @@
 
 {%- if paginate.parts.size > 0 -%}
   <div class="pagination-wrapper">
-    <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
-      <ul class="pagination__list list-unstyled" role="list">
+    <nav class="text-center" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+      <ul class="ot-pagination text-center mt-5" role="list">
         {%- if paginate.previous -%}
           <li>
             <a
@@ -44,7 +44,7 @@
                 <a
                   role="link"
                   aria-disabled="true"
-                  class="pagination__item pagination__item--current light"
+                  class="active"
                   aria-current="page"
                   aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
                 >

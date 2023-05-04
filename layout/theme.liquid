@@ -27,6 +27,9 @@
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
+
+
+
     {% render 'meta-tags' %}
 
     {% comment %} <link rel="preload" as="script" href="{{ 'jquery-3.6.0.min.js' | asset_url }}"> {% endcomment %}
@@ -52,13 +55,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"  rel="preconnect"  href="{{ 'base.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
-<link rel="stylesheet"  rel="preconnect"  href="{{ 'bootstrap.min.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
+{% render 'all-extenxtcss' %}
+{% comment %} <link rel="stylesheet"  rel="preconnect"  href="{{ 'bootstrap.min.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
 <link rel="stylesheet" rel="preconnect"  href="{{ 'splide.min.css ' | asset_url }}" media="none" onload="if(media!='all')media='all'">
-<link rel="stylesheet"  rel="preconnect" href="{{ 'style.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
+<link rel="stylesheet"  rel="preconnect" href="{{ 'style.css' | asset_url }}" media="none" onload="if(media!='all')media='all'"> {% endcomment %}
 <noscript><link rel="stylesheet" href="{{ 'base.css' | asset_url }}"></noscript>
-<noscript><link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}"></noscript>
+{% comment %} <noscript><link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}"></noscript>
 <noscript><link rel="stylesheet" href="{{ 'splide.min.css' | asset_url }}"></noscript>
-<noscript><link rel="stylesheet" href="{{ 'style.css' | asset_url }}"></noscript>
+<noscript><link rel="stylesheet" href="{{ 'style.css' | asset_url }}"></noscript> {% endcomment %}
 
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
@@ -229,7 +233,7 @@
         height: 100%;
       }
 
-      body {
+      /* body {
         display: grid;
         grid-template-rows: auto auto 1fr auto;
         grid-template-columns: 100%;
@@ -241,13 +245,13 @@
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
-      }
+      } */
 
-      @media screen and (min-width: 750px) {
+      /* @media screen and (min-width: 750px) {
         body {
           font-size: 1.6rem;
         }
-      }
+      } */
     {% endstyle %}
 
     {% comment %} {{  | asset_url | stylesheet_tag }} {% endcomment %}
