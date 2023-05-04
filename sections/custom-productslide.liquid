@@ -29,7 +29,7 @@
 
                 
                   <div class="splide__slide">
-                      <a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp" data-wow-delay="0.2s">
+                      <a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp  {% if sold_out %} soldout-p {% endif%}" data-wow-delay="0.2s">
                           <div class="product-img">
                             
                               {{ product.featured_image.src | image_url: width: 350 | image_tag:
@@ -122,3 +122,20 @@
             ]
     }
 {% endschema %}
+
+
+
+<style>
+ .product-img .hover-img{
+
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: max-content;
+}
+
+.soldout-p{
+
+}
+</style>
