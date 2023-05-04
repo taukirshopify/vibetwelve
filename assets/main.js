@@ -219,7 +219,39 @@
       } );
       pssplide.mount(window.splide.Extensionstwo);    
   }
-  
+  var splideCheck4 = document.getElementById("img-slider");
+  if (splideCheck4) {
+      var imgsplide = new Splide( '#img-slider', {
+        type       : 'fade',
+        pagination : false,
+        arrows     : false,
+      } );
+      var thumbSplide = new Splide( '#thumb-slider', {
+        type            : 'loop',
+        rewind          : false,
+        fixedWidth      : 90,
+        fixedHeight     : 90,
+        isNavigation    : true,
+        gap             : 10,
+        focus           : 'center',
+        pagination      : false,
+        cover           : true,
+        arrows          : false,
+        dragMinThreshold: {
+          mouse: 4,
+          touch: 10,
+        },
+        breakpoints : {
+          640: {
+            fixedWidth  : 70,
+            fixedHeight : 70,
+          },
+        },
+      } );
+      imgsplide.sync( thumbSplide );
+      imgsplide.mount();    
+      thumbSplide.mount();
+  }
   /*----------- 03. Content Toggle ----------*/
   $('.content-expand').on('click', function (e) {
       $(this).toggleClass('active')
