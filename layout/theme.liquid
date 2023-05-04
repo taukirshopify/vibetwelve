@@ -31,8 +31,10 @@
 
 
     {% render 'meta-tags' %}
+    {% render 'javascript' %}
 
     {% comment %} <link rel="preload" as="script" href="{{ 'jquery-3.6.0.min.js' | asset_url }}"> {% endcomment %}
+  
     <script>
       window.jQuery || document.write('<script src="{{ 'jquery-3.6.0.min.js' | asset_url }}"><\/script>');
       window.jQuery || document.write('<script src="{{ 'splide.min.js' | asset_url }}"><\/script>');
