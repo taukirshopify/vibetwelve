@@ -13,6 +13,7 @@
         {%- if forloop.index > 2 -%}
           {%- assign lazy_load = true -%}
         {%- endif -%}
+        
         {% comment %} <li class="grid__item">
           {% render 'card-product',
             card_product: product,
@@ -26,13 +27,16 @@
           %}
         </li> {% endcomment %}
         <div class="col-lg-4 col-sm-6">
-            <a href="shop-details.html" class="ot-product style2  wow fadeInUp">
+            <a href="shop-details.html" class="ot-product style2 ">
                 <div class="product-img">
-                    {{ product.featured_image.src | image_url: width: 350 | image_tag:
+                    
+                    {{ product.featured_image.src | image_url: width: 450 | image_tag:
                         loading: 'lazy',
                         height: height,
-                  
-                        widths: '250, 350,'
+                  unless lazy_load == false 
+                            loading="lazy"
+                           endunless 
+                        widths: '250,350, 450,'
                       }}
                 </div>
                 <div class="product-content">
