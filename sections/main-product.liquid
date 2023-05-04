@@ -159,7 +159,7 @@ div#Quantity-Form-template--18968547819830__main {
                   {%- when 'description' -%}
                     {%- if product.description != blank -%}
                       <div class="product__description d-none d-lg-block rte quick-add-hidden" {{ block.shopify_attributes }}>
-                        {{ product.description }}
+                        {{ product.description | strip_html | strip_html }}
                       </div>
                     {%- endif -%}
                   {%- when 'sku' -%}
@@ -539,7 +539,7 @@ div#Quantity-Form-template--18968547819830__main {
                 {%- when 'description' -%}
                   {%- if product.description != blank -%}
                     <div class="product__description rte   quick-add-hidden" {{ block.shopify_attributes }}>
-                      {{ product.description }}
+                      {{ product.description | strip_html | strip_html }}
                     </div>
                   {%- endif -%}
                 {%- when 'sku' -%}
