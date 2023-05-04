@@ -27,45 +27,29 @@
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  {% if section.settings.image_zoom == 'hover' %}
-    <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
-  {% endif %}
+
   {%- if request.design_mode -%}
     <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
-  {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
-  {%- if first_3d_model -%}
-    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
-    <link
-      id="ModelViewerStyle"
-      rel="stylesheet"
-      href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
-      media="print"
-      onload="this.media='all'"
-    >
-    <link
-      id="ModelViewerOverride"
-      rel="stylesheet"
-      href="{{ 'component-model-viewer-ui.css' | asset_url }}"
-      media="print"
-      onload="this.media='all'"
-    >
-  {%- endif -%}
+
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
- <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-    <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
-      {% render 'product-media-gallery', variant_images: variant_images %}
-    </div>
-    <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
+ <div class="product ">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 mb-30 mb-lg-0 order-1 order-lg-0 wow fadeInUp" data-wow-delay="0.2s">
+
+          
+
+     
       <product-info
-        id="ProductInfo-{{ section.id }}"
-        data-section="{{ section.id }}"
-        data-url="{{ product.url }}"
-        class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
-      >
+          id="ProductInfo-{{ section.id }}"
+          data-section="{{ section.id }}"
+          data-url="{{ product.url }}"
+          class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+        >
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
         {%- for block in section.blocks -%}
@@ -88,32 +72,7 @@
                   </h2>
                 </a>
               </div>
-            {%- when 'price' -%}
-              <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                {%- render 'price',
-                  product: product,
-                  use_variant: true,
-                  show_badges: true,
-                  price_class: 'price--large'
-                -%}
-              </div>
-              {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-                <div class="product__tax caption rte">
-                  {%- if shop.taxes_included -%}
-                    {{ 'products.product.include_taxes' | t }}
-                  {%- endif -%}
-                  {%- if shop.shipping_policy.body != blank -%}
-                    {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                  {%- endif -%}
-                </div>
-              {%- endif -%}
-              <div {{ block.shopify_attributes }}>
-                {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
-                {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                  {{ form | payment_terms }}
-                {%- endform -%}
-              </div>
+ 
             {%- when 'inventory' -%}
               <p
                 class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -196,92 +155,7 @@
                   </div>
                 </details>
               </div>
-            {%- when 'quantity_selector' -%}
-              <div
-                id="Quantity-Form-{{ section.id }}"
-                class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
-                {{ block.shopify_attributes }}
-              >
-                {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
-                {% # theme-check-disable %}
-                {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
-                {% # theme-check-enable %}
-                <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
-                  {{ 'products.product.quantity.label' | t }}
-                  <span class="quantity__rules-cart no-js-hidden{% if cart_qty == 0 %} hidden{% endif %}">
-                    <span class="loading-overlay hidden">
-                      <span class="loading-overlay__spinner">
-                        <svg
-                          aria-hidden="true"
-                          focusable="false"
-                          class="spinner"
-                          viewBox="0 0 66 66"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                        </svg>
-                      </span>
-                    </span>
-                    <span>({{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}})</span>
-                  </span>
-                </label>
-                <quantity-input class="quantity">
-                  <button class="quantity__button no-js-hidden" name="minus" type="button">
-                    <span class="visually-hidden">
-                      {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
-                    </span>
-                    {% render 'icon-minus' %}
-                  </button>
-                  <input
-                    class="quantity__input"
-                    type="number"
-                    name="quantity"
-                    id="Quantity-{{ section.id }}"
-                    data-cart-quantity="{{ cart_qty }}"
-                    data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                    min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                    {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                      data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                      max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                    {% endif %}
-                    step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                    value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                    form="{{ product_form_id }}"
-                  />
-                  <button class="quantity__button no-js-hidden" name="plus" type="button">
-                    <span class="visually-hidden">
-                      {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
-                    </span>
-                    {% render 'icon-plus' %}
-                  </button>
-                </quantity-input>
-                <div class="quantity__rules caption no-js-hidden">
-                  {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
-                    <span class="divider">
-                      {{-
-                        'products.product.quantity.multiples_of'
-                        | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment
-                      -}}
-                    </span>
-                  {%- endif -%}
-                  {%- if product.selected_or_first_available_variant.quantity_rule.min > 1 -%}
-                    <span class="divider">
-                      {{-
-                        'products.product.quantity.minimum_of'
-                        | t: quantity: product.selected_or_first_available_variant.quantity_rule.min
-                      -}}
-                    </span>
-                  {%- endif -%}
-                  {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
-                    <span class="divider">
-                      {{-
-                        'products.product.quantity.maximum_of'
-                        | t: quantity: product.selected_or_first_available_variant.quantity_rule.max
-                      -}}
-                    </span>
-                  {%- endif -%}
-                </div>
-              </div>
+
             {%- when 'popup' -%}
               <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
@@ -309,44 +183,7 @@
 
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-            {%- when 'buy_buttons' -%}
-              {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
-            {%- when 'rating' -%}
-              {%- if product.metafields.reviews.rating.value != blank -%}
-                {% liquid
-                  assign rating_decimal = 0
-                  assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
-                  if decimal >= 0.3 and decimal <= 0.7
-                    assign rating_decimal = 0.5
-                  elsif decimal > 0.7
-                    assign rating_decimal = 1
-                  endif
-                %}
-                <div
-                  class="rating"
-                  role="img"
-                  aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="rating-star color-icon-{{ settings.accent_icons }}"
-                    style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
-                  ></span>
-                </div>
-                <p class="rating-text caption">
-                  <span aria-hidden="true">
-                    {{- product.metafields.reviews.rating.value }} /
-                    {{ product.metafields.reviews.rating.value.scale_max -}}
-                  </span>
-                </p>
-                <p class="rating-count caption">
-                  <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
-                  <span class="visually-hidden">
-                    {{- product.metafields.reviews.rating_count }}
-                    {{ 'accessibility.total_reviews' | t -}}
-                  </span>
-                </p>
-              {%- endif -%}
+       
             {%- when 'complementary' -%}
               <product-recommendations class="complementary-products quick-add-hidden no-js-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ block.settings.product_list_limit }}&intent=complementary">
                 {%- if recommendations.performed and recommendations.products_count > 0 -%}
@@ -439,112 +276,105 @@
           {% render 'icon-arrow' %}
         </a>
       </product-info>
+
     </div>
-    {%- if section.settings.media_position == 'right' -%}
-      {% comment %} Duplicate gallery to display after product content on tablet/desktop breakpoint {% endcomment %}
-      <div class="grid__item product__media-wrapper small-hide">
-        {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %}
+    <div class="col-lg-6">
+      <div class="d-none d-lg-block">
+        
+          <div class="product-big-img">
+            {% for image in product.images%}
+           
+                    
+             
+    
+                
+                
+                    {{ image  | image_url: width: 650 | image_tag:
+                      height: height,
+                      format: 'webp',
+                      widths: '250, 350,450,550,650'
+                    }}
+            {% endfor %}
+
+
+          </div>
       </div>
-    {%- endif -%}
-  </div>
+      <div class="d-block d-lg-none">
+          <div class="product-img-area">
+              <div class="product-big-img mb-0">
+                  <div class="splide" id="img-slider">
+                      <div class="splide__track">
+                          <div class="splide__list">
 
-
-  {% comment %} new Product detials {% endcomment %}
-
-
-
-
-  {% comment %} <section class="pt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 mb-30 mb-lg-0 order-1 order-lg-0 wow fadeInUp" data-wow-delay="0.2s">
-   
-              
-            </div>
-            <div class="col-lg-6">
-                <div class="d-none d-lg-block">
-                  
-                    <div class="product-big-img">
-                      {% for image in product.images%}
-                     
-                              
-                       
-              
-                          
-                          
-                              {{ image  | image_url: width: 650 | image_tag:
-                                height: height,
-                                format: 'webp',
-                                widths: '250, 350,450,550,650'
-                              }}
+                            {% for image in product.images%}
+           
+                    
+             
+                              <div class="splide__slide">
+                                <div class="img">
+                           
+                                  {{ image  | image_url: width: 650 | image_tag:
+                                    height: height,
+                                    format: 'webp',
+                                    widths: '250, 350,450,550,650'
+                                  }}
+                                </div>
+                              </div>
                       {% endfor %}
 
-
-                    </div>
-                </div>
-                <div class="d-block d-lg-none">
-                    <div class="product-img-area">
-                        <div class="product-big-img mb-0">
-                            <div class="splide" id="img-slider">
-                                <div class="splide__track">
-                                    <div class="splide__list">
-
-                                      {% for image in product.images%}
-                     
-                              
-                       
-                                        <div class="splide__slide">
-                                          <div class="img">
-                                     
-                                            {{ image  | image_url: width: 650 | image_tag:
-                                              height: height,
-                                              format: 'webp',
-                                              widths: '250, 350,450,550,650'
-                                            }}
-                                          </div>
-                                        </div>
-                                {% endfor %}
-
-                                      
-                                  
-                                    </div>
+                            
+                        
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="product-thumb-img mb-40">
+                  <div class="splide" id="thumb-slider">
+                      <div class="splide__track">
+                          <div class="splide__list">
+                            {% for image in product.images%}
+           
+                    
+             
+                              <div class="splide__slide">
+                                <div class="img">
+                           
+                                  {{ image  | image_url: width: 65 | image_tag:
+                                    height: height,
+                                    format: 'webp',
+                                    widths: '25, 35,45,55,65'
+                                  }}
                                 </div>
-                            </div>
-                        </div>
-                        <div class="product-thumb-img mb-40">
-                            <div class="splide" id="thumb-slider">
-                                <div class="splide__track">
-                                    <div class="splide__list">
-                                      {% for image in product.images%}
-                     
-                              
-                       
-                                        <div class="splide__slide">
-                                          <div class="img">
-                                     
-                                            {{ image  | image_url: width: 65 | image_tag:
-                                              height: height,
-                                              format: 'webp',
-                                              widths: '25, 35,45,55,65'
-                                            }}
-                                          </div>
-                                        </div>
-                                      {% endfor %}
+                              </div>
+                            {% endfor %}
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 order-2 order-lg-0 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="product-about">
-                  {%- for block in section.blocks -%}
-                    {%- case block.type -%}
-                      
-                      
-                      {%- when 'price' -%}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    <div class="col-lg-3 order-2 order-lg-0 wow fadeInUp" data-wow-delay="0.2s">
+      <div class="product-about">
+      <product-info
+        id="ProductInfo-{{ section.id }}"
+        data-section="{{ section.id }}"
+        data-url="{{ product.url }}"
+        class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+       >
+        {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+      
+      
+     
+       
+  
+    
+  
+          {%- when 'price' -%}
                         <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                           {%- render 'price',
                             product: product,
@@ -647,234 +477,36 @@
                       {%- when 'buy_buttons' -%}
                         {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
                  
-                   
-                    {%- endcase -%}
-                  {%- endfor -%}
-
-                </div>
-            </div>
-        </div>
-        <!--==============================
-Related Product  
-==============================-->
-       
-    </div>
-</section>
-<div class="container">
- <div class="row">
-  <div class="space-top">
-    <h2 class="sec-title text-center">YOU MAY ALSO LIKE</h2>
-    <div class="splide" id="related-slider">
-        <div class="splide__track">
-            <div class="splide__list">
-
-                <div class="splide__slide">
-                    <div class="ot-product  wow fadeInUp" data-wow-delay="0.1s">
-                        <a href="shop-details.html" class="product-img">
-                            <img src="assets/img/product/product_1_1.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-content">
-                            <p class="subtitle">LVIR</p>
-                            <h3 class="product-title"><a href="shop-details.html">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</a></h3>
-                            <p class="price">135,000원</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="splide__slide">
-                    <div class="ot-product  wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="shop-details.html" class="product-img">
-                            <img src="assets/img/product/product_1_2.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-content">
-                            <p class="subtitle">LVIR</p>
-                            <h3 class="product-title"><a href="shop-details.html">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</a></h3>
-                            <p class="price">135,000원</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="splide__slide">
-                    <div class="ot-product  wow fadeInUp" data-wow-delay="0.3s">
-                        <a href="shop-details.html" class="product-img">
-                            <img src="assets/img/product/product_1_3.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-content">
-                            <p class="subtitle">LVIR</p>
-                            <h3 class="product-title"><a href="shop-details.html">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</a></h3>
-                            <p class="price">135,000원</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="splide__slide">
-                    <div class="ot-product  wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="shop-details.html" class="product-img">
-                            <img src="assets/img/product/product_1_4.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-content">
-                            <p class="subtitle">LVIR</p>
-                            <h3 class="product-title"><a href="shop-details.html">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</a></h3>
-                            <p class="price">135,000원</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="splide__slide">
-                    <div class="ot-product  wow fadeInUp" data-wow-delay="0.5s">
-                        <a href="shop-details.html" class="product-img">
-                            <img src="assets/img/product/product_1_5.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-content">
-                            <p class="subtitle">LVIR</p>
-                            <h3 class="product-title"><a href="shop-details.html">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</a></h3>
-                            <p class="price">135,000원</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div> {% endcomment %}
-
-
-
-
-
-
-
-  {% comment %} new Product End detials {% endcomment %}
-
-
-
-
-  {% render 'product-media-modal' variant_images: variant_images %}
-
-  {% assign popups = section.blocks | where: 'type', 'popup' %}
-  {%- for block in popups -%}
-    <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
-      <div
-        role="dialog"
-        aria-label="{{ block.settings.text }}"
-        aria-modal="true"
-        class="product-popup-modal__content"
-        tabindex="-1"
-      >
-        <button
-          id="ModalClose-{{ block.id }}"
-          type="button"
-          class="product-popup-modal__toggle"
-          aria-label="{{ 'accessibility.close' | t }}"
-        >
-          {% render 'icon-close' %}
-        </button>
-        <div class="product-popup-modal__content-info">
-          <h1 class="h2">{{ block.settings.page.title }}</h1>
-          {{ block.settings.page.content }}
-        </div>
-      </div>
-    </modal-dialog>
-  {%- endfor -%}
-
-  {%- if product.media.size > 0 -%}
-    <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
-  {%- endif -%}
-
-  {%- if first_3d_model -%}
-    <script type="application/json" id="ProductJSON-{{ product.id }}">
-      {{ product.media | where: 'media_type', 'model' | json }}
-    </script>
-    <script src="{{ 'product-model.js' | asset_url }}" defer></script>
-  {%- endif -%}
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      function isIE() {
-        const ua = window.navigator.userAgent;
-        const msie = ua.indexOf('MSIE ');
-        const trident = ua.indexOf('Trident/');
-
-        return msie > 0 || trident > 0;
-      }
-
-      if (!isIE()) return;
-      const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
-      const noScriptInputWrapper = document.createElement('div');
-      const variantSwitcher =
-        document.querySelector('variant-radios[data-section="{{ section.id }}"]') ||
-        document.querySelector('variant-selects[data-section="{{ section.id }}"]');
-      noScriptInputWrapper.innerHTML = document.querySelector(
-        '.product-form__noscript-wrapper-{{ section.id }}'
-      ).textContent;
-      variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
-
-      document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function (event) {
-        hiddenInput.value = event.currentTarget.value;
-      });
-    });
-  </script>
-
-  {%- liquid
-    if product.selected_or_first_available_variant.featured_media
-      assign seo_media = product.selected_or_first_available_variant.featured_media
-    else
-      assign seo_media = product.featured_media
-    endif
-  -%}
-
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org/",
-      "@type": "Product",
-      "name": {{ product.title | json }},
-      "url": {{ request.origin | append: product.url | json }},
-      {% if seo_media -%}
-        "image": [
-          {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
-        ],
-      {%- endif %}
-      "description": {{ product.description | strip_html | json }},
-      {% if product.selected_or_first_available_variant.sku != blank -%}
-        "sku": {{ product.selected_or_first_available_variant.sku | json }},
-      {%- endif %}
-      "brand": {
-        "@type": "Brand",
-        "name": {{ product.vendor | json }}
-      },
-      "offers": [
-        {%- for variant in product.variants -%}
-          {
-            "@type" : "Offer",
-            {%- if variant.sku != blank -%}
-              "sku": {{ variant.sku | json }},
-            {%- endif -%}
-            {%- if variant.barcode.size == 12 -%}
-              "gtin12": {{ variant.barcode }},
-            {%- endif -%}
-            {%- if variant.barcode.size == 13 -%}
-              "gtin13": {{ variant.barcode }},
-            {%- endif -%}
-            {%- if variant.barcode.size == 14 -%}
-              "gtin14": {{ variant.barcode }},
-            {%- endif -%}
-            "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-            "price" : {{ variant.price | divided_by: 100.00 | json }},
-            "priceCurrency" : {{ cart.currency.iso_code | json }},
-            "url" : {{ request.origin | append: variant.url | json }}
-          }{% unless forloop.last %},{% endunless %}
+          {%- endcase -%}
         {%- endfor -%}
-      ]
-    }
-  </script>
+        <a href="{{ product.url }}" class="link product__view-details animate-arrow">
+          {{ 'products.product.view_full_details' | t }}
+          {% render 'icon-arrow' %}
+        </a>
+      </product-info>
+
+    </div>
+  </div>
+
+    
+  </div>
+
+
+
+
+  
+     
+
+       
+           
+
+        
+
+    </div>
+   
+</div>
 </section>
+
 
 {% schema %}
 {
