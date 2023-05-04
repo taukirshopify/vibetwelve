@@ -226,6 +226,8 @@
         pagination : false,
         arrows     : false,
       } );
+      var splideCheck5 = document.getElementById("thumb-slider");
+      if (splideCheck5) {
       var thumbSplide = new Splide( '#thumb-slider', {
         type            : 'loop',
         rewind          : false,
@@ -250,7 +252,8 @@
       imgsplide.sync( thumbSplide );
       imgsplide.mount();    
       thumbSplide.mount();
-  }
+      }
+    }
   /*----------- 03. Content Toggle ----------*/
   $('.content-expand').on('click', function (e) {
       $(this).toggleClass('active')
