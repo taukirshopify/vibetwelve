@@ -43,7 +43,7 @@
                             {{ image | image_url: width: 350 | image_tag:
                               loading: 'lazy',
                               height: height,
-                  
+                              format: 'webp',
                               widths: '250, 350,'
                             }}
                              {% else %}  
@@ -51,6 +51,7 @@
                              {{ image | image_url: width: 350 | image_tag:
                               loading: 'lazy',
                               height: height,
+                              format: 'webp',
                               class:'hover-img',
                               widths: '250, 350,'
                             }}
@@ -67,7 +68,7 @@
                           {{ product.featured_image.src | image_url: width: 350 | image_tag:
                             loading: 'lazy',
                             height: height,
-                      
+                            format: 'webp',
                             widths: '250, 350,'
                           }}
 

@@ -168,6 +168,7 @@
                             {{ product.featured_image.src | image_url: width: 450 | image_tag:
                                 loading: 'lazy',
                                 height: height,
+                                format: 'webp',
                                 widths: '250,350, 450,'
                               }}
                               {% if sold_out %}
