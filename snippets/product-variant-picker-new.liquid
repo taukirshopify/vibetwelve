@@ -9,6 +9,15 @@
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
+
+
+<style>
+  @media screen and (min-width: 990px){
+  .title, .title-wrapper-with-link {
+      margin: 0;
+  }
+}
+</style>
 {%- unless product.has_only_default_variant -%}
   {%- if block.settings.picker_type == 'button' -%}
     <variant-radios
@@ -24,11 +33,11 @@
       <div class="seletor">
    
       {%- for option in product.options_with_values -%}
-        <fieldset class="js product-form__input">
+        <fieldset class="js product-form__input size-selector">
           <legend class="form__label title text-uppercase">{{ option.name }}</legend>
 
           
-          {% render 'product-variant-options', product: product, option: option, block: block %}
+          {% render 'product-variant-options-new', product: product, option: option, block: block %}
         </fieldset>
       {%- endfor -%}
     </div>

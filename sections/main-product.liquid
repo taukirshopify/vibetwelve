@@ -3,7 +3,7 @@
   class="container section-{{ section.id }}-padding"
   data-section="{{ section.id }}"
 >
-  {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+  {% comment %} {{ 'section-main-product.css' | asset_url | stylesheet_tag }} {% endcomment %}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
@@ -24,6 +24,31 @@
       }
     }
   {%- endstyle -%}
+
+
+
+
+
+
+
+<style>
+  .product-form__input input[type='radio']:disabled + label, .product-form__input input[type='radio'].disabled + label {
+    border-color: rgba(var(--color-foreground), 0.1);
+    color: rgba(var(--color-foreground), 0.6);
+    text-decoration: line-through;
+}
+b, strong {
+
+  font-weight: normal;
+}
+.product-form__buttons button {
+  margin: 11px 0px;
+}
+div#Quantity-Form-template--18968547819830__main {
+  margin-top: 26px;
+}
+</style>
+
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
@@ -48,7 +73,7 @@
           id="ProductInfo-{{ section.id }}"
           data-section="{{ section.id }}"
           data-url="{{ product.url }}"
-          class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+          class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} product-about"
         >
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -65,9 +90,9 @@
               </p>
             {%- when 'title' -%}
               <div class="product__title" {{ block.shopify_attributes }}>
-                <h1>{{ product.title | escape }}</h1>
+                <h1 class="product-title">{{ product.title | escape }}</h1>
                 <a href="{{ product.url }}" class="product__title">
-                  <h2 class="h1">
+                  <h2 class="h1 product-title d-none">
                     {{ product.title | escape }}
                   </h2>
                 </a>
@@ -182,7 +207,7 @@
               %}
 
             {%- when 'variant_picker' -%}
-              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              {% render 'product-variant-picker-new', product: product, block: block, product_form_id: product_form_id %}
        
             {%- when 'complementary' -%}
               <product-recommendations class="complementary-products quick-add-hidden no-js-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ block.settings.product_list_limit }}&intent=complementary">
@@ -271,6 +296,10 @@
               %}
           {%- endcase -%}
         {%- endfor -%}
+
+
+
+        
         <a href="{{ product.url }}" class="link product__view-details animate-arrow">
           {{ 'products.product.view_full_details' | t }}
           {% render 'icon-arrow' %}
@@ -356,152 +385,140 @@
       </div>
   </div>
     <div class="col-lg-3 order-2 order-lg-0 wow fadeInUp" data-wow-delay="0.2s">
-      <div class="product-about">
-      <product-info
-        id="ProductInfo-{{ section.id }}"
-        data-section="{{ section.id }}"
-        data-url="{{ product.url }}"
-        class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
-       >
-        {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          <div class="product-about">
+          <product-info
+            id="ProductInfo-{{ section.id }}"
+            data-section="{{ section.id }}"
+            data-url="{{ product.url }}"
+            class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+          >
+            {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-      
-      
-     
-       
-  
-    
-  
-          {%- when 'price' -%}
-                        <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                          {%- render 'price',
-                            product: product,
-                            use_variant: true,
-                            show_badges: true,
-                            price_class: 'price--large'
-                          -%}
-                        </div>
-             
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+          
+          
         
-               
-              
-                      {%- when 'quantity_selector' -%}
-                        <div
-                          id="Quantity-Form-{{ section.id }}"
-                          class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
-                          {{ block.shopify_attributes }}
-                        >
-                          {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
-                          {% # theme-check-disable %}
-                          {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
-                          {% # theme-check-enable %}
-                          <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
-                            {{ 'products.product.quantity.label' | t }}
-                            <span class="quantity__rules-cart no-js-hidden{% if cart_qty == 0 %} hidden{% endif %}">
-                              <span class="loading-overlay hidden">
-                                <span class="loading-overlay__spinner">
-                                  <svg
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    class="spinner"
-                                    viewBox="0 0 66 66"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                                  </svg>
+          
+      
+        
+      
+                          {%- when 'price' -%}
+                            <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                              {%- render 'price',
+                                product: product,
+                                use_variant: true,
+                                show_badges: true,
+                                price_class: 'price--large'
+                              -%}
+                            </div>
+                
+            
+                  
+                  
+                          {%- when 'quantity_selector' -%}
+                            <div
+                              id="Quantity-Form-{{ section.id }}"
+                              class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                              {{ block.shopify_attributes }}
+                            >
+                              {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
+                              {% # theme-check-disable %}
+                              {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
+                              {% # theme-check-enable %}
+                              <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+                                {{ 'products.product.quantity.label' | t }}
+                                <span class="quantity__rules-cart no-js-hidden{% if cart_qty == 0 %} hidden{% endif %}">
+                                  <span class="loading-overlay hidden">
+                                    <span class="loading-overlay__spinner">
+                                      <svg
+                                        aria-hidden="true"
+                                        focusable="false"
+                                        class="spinner"
+                                        viewBox="0 0 66 66"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                                      </svg>
+                                    </span>
+                                  </span>
+                                  <span>({{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}})</span>
                                 </span>
-                              </span>
-                              <span>({{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}})</span>
-                            </span>
-                          </label>
-                          <quantity-input class="quantity">
-                            <button class="quantity__button no-js-hidden" name="minus" type="button">
-                              <span class="visually-hidden">
-                                {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
-                              </span>
-                              {% render 'icon-minus' %}
-                            </button>
-                            <input
-                              class="quantity__input"
-                              type="number"
-                              name="quantity"
-                              id="Quantity-{{ section.id }}"
-                              data-cart-quantity="{{ cart_qty }}"
-                              data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                              min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                              {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                                data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                                max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                              {% endif %}
-                              step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                              value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                              form="{{ product_form_id }}"
-                            />
-                            <button class="quantity__button no-js-hidden" name="plus" type="button">
-                              <span class="visually-hidden">
-                                {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
-                              </span>
-                              {% render 'icon-plus' %}
-                            </button>
-                          </quantity-input>
-                          <div class="quantity__rules caption no-js-hidden">
-                            {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
-                              <span class="divider">
-                                {{-
-                                  'products.product.quantity.multiples_of'
-                                  | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment
-                                -}}
-                              </span>
-                            {%- endif -%}
-                            {%- if product.selected_or_first_available_variant.quantity_rule.min > 1 -%}
-                              <span class="divider">
-                                {{-
-                                  'products.product.quantity.minimum_of'
-                                  | t: quantity: product.selected_or_first_available_variant.quantity_rule.min
-                                -}}
-                              </span>
-                            {%- endif -%}
-                            {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
-                              <span class="divider">
-                                {{-
-                                  'products.product.quantity.maximum_of'
-                                  | t: quantity: product.selected_or_first_available_variant.quantity_rule.max
-                                -}}
-                              </span>
-                            {%- endif -%}
-                          </div>
-                        </div>
-                      
-                      {%- when 'buy_buttons' -%}
-                        {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
-                 
-          {%- endcase -%}
-        {%- endfor -%}
-        <a href="{{ product.url }}" class="link product__view-details animate-arrow">
-          {{ 'products.product.view_full_details' | t }}
-          {% render 'icon-arrow' %}
-        </a>
-      </product-info>
+                              </label>
+                              <quantity-input class="quantity">
+                                <button class="quantity__button no-js-hidden" name="minus" type="button">
+                                  <span class="visually-hidden">
+                                    {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                                  </span>
+                                  {% render 'icon-minus' %}
+                                </button>
+                                <input
+                                  class="quantity__input"
+                                  type="number"
+                                  name="quantity"
+                                  id="Quantity-{{ section.id }}"
+                                  data-cart-quantity="{{ cart_qty }}"
+                                  data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                                  min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                                  {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                                    data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                                    max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                                  {% endif %}
+                                  step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                                  value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                                  form="{{ product_form_id }}"
+                                />
+                                <button class="quantity__button no-js-hidden" name="plus" type="button">
+                                  <span class="visually-hidden">
+                                    {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                                  </span>
+                                  {% render 'icon-plus' %}
+                                </button>
+                              </quantity-input>
+                              <div class="quantity__rules caption no-js-hidden">
+                                {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
+                                  <span class="divider">
+                                    {{-
+                                      'products.product.quantity.multiples_of'
+                                      | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment
+                                    -}}
+                                  </span>
+                                {%- endif -%}
+                                {%- if product.selected_or_first_available_variant.quantity_rule.min > 1 -%}
+                                  <span class="divider">
+                                    {{-
+                                      'products.product.quantity.minimum_of'
+                                      | t: quantity: product.selected_or_first_available_variant.quantity_rule.min
+                                    -}}
+                                  </span>
+                                {%- endif -%}
+                                {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
+                                  <span class="divider">
+                                    {{-
+                                      'products.product.quantity.maximum_of'
+                                      | t: quantity: product.selected_or_first_available_variant.quantity_rule.max
+                                    -}}
+                                  </span>
+                                {%- endif -%}
+                              </div>
+                            </div>
+                          
+                          {%- when 'buy_buttons' -%}
+                            {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
+                    
+              {%- endcase -%}
+            {%- endfor -%}
+            <a href="{{ product.url }}" class="link product__view-details animate-arrow">
+              {{ 'products.product.view_full_details' | t }}
+              {% render 'icon-arrow' %}
+            </a>
+          </product-info>
 
+        </div>
     </div>
-  </div>
 
     
-  </div>
-
-
-
-
-  
-     
-
-       
-           
-
-        
-
+     </div>
     </div>
    
 </div>
