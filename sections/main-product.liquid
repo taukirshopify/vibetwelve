@@ -55,7 +55,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
-  {% comment %} <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+<div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       {% render 'product-media-gallery', variant_images: variant_images %}
     </div>
@@ -446,7 +446,7 @@
         {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %}
       </div>
     {%- endif -%}
-  </div> {% endcomment %}
+  </div> 
 
 
   {% comment %} new Product detials {% endcomment %}
@@ -454,7 +454,7 @@
 
 
 
-  <section class="pt-5">
+  {% comment %} <section class="pt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 mb-30 mb-lg-0 order-1 order-lg-0 wow fadeInUp" data-wow-delay="0.2s">
@@ -890,11 +890,7 @@
 
                 </div>
             </div>
-        </div>
-        <!--==============================
-Related Product  
-==============================-->
-       
+        </div> 
     </div>
 </section>
 <div class="container">
@@ -979,7 +975,7 @@ Related Product
     </div>
 </div>
 </div>
-</div>
+</div> {% endcomment %}
 
 
 

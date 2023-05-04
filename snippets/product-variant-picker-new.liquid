@@ -21,12 +21,18 @@
       {% endif %}
       {{ block.shopify_attributes }}
     >
+      <div class="seletor">
+   
       {%- for option in product.options_with_values -%}
         <fieldset class="js product-form__input">
-          <legend class="form__label">{{ option.name }}</legend>
+          <legend class="form__label title text-uppercase">{{ option.name }}</legend>
+
+          
           {% render 'product-variant-options', product: product, option: option, block: block %}
         </fieldset>
       {%- endfor -%}
+    </div>
+    
       <script type="application/json">
         {{ product.variants | json }}
       </script>
@@ -120,3 +126,6 @@
     </div>
   </div>
 </noscript>
+<div class="seletor">
+  <h3 class="title">{{ option.name }}</h3>
+</div>
