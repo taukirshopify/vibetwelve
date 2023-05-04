@@ -169,9 +169,6 @@
                             {{ product.featured_image.src | image_url: width: 450 | image_tag:
                                 loading: 'lazy',
                                 height: height,
-                          unless lazy_load == false 
-                                    loading="lazy"
-                                   endunless 
                                 widths: '250,350, 450,'
                               }}
                         </div>
