@@ -32,10 +32,8 @@
 
     {% render 'meta-tags' %}
     {% render 'javascript' %}
-
-  <link rel="preload" as="script" href="{{ '{{ 'wow.min.js' | asset_url }}' | asset_url }}"> 
-  <link rel="preload" as="script" href="{{ '{{ 'main.js' | asset_url }}' | asset_url }}"> 
-  
+  <script src="{{ 'wow.min.js' | asset_url }}" ></script> 
+     <script src="{{ 'main.js' | asset_url }}" ></script>
    
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
