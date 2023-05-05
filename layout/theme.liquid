@@ -33,18 +33,22 @@
     {% render 'meta-tags' %}
     {% render 'javascript' %}
 
+  <link rel="preload" as="script" href="{{ '{{ 'wow.min.js' | asset_url }}' | asset_url }}"> 
+  <link rel="preload" as="script" href="{{ '{{ 'main.js' | asset_url }}' | asset_url }}"> 
   
    
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"  rel="preconnect"  href="{{ 'base.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
+<noscript><link rel="stylesheet" href="{{ 'base.css' | asset_url }}"></noscript>
 {% render 'all-extenxtcss' %}
 
 
 
-<noscript><link rel="stylesheet" href="{{ 'base.css' | asset_url }}"></noscript>
+
 
 
 
