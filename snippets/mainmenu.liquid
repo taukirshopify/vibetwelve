@@ -1,0 +1,136 @@
+<nav class="main-menu">
+    <ul>
+      {% assign footer_menu_4 = section.settings.main-menu2 %}
+      {% for link in linklists[footer_menu_4].links %}
+
+
+     
+
+
+        {% assign child_list_handle = link.title | handleize %}
+                    
+        {% if linklists[child_list_handle].links != blank %}
+
+
+    
+        <li class="menu-item-hot-children">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+
+           
+
+
+            <ul class="sub-menu">
+                {% for childlink in linklists[child_list_handle].links %}
+
+
+
+                    {% assign grand_child_link_handle = childlink.title | handleize %}
+                      {% if linklists[grand_child_link_handle] and linklists[grand_child_link_handle].links.size > 0 %}
+
+                        <li><a href="{{ childlink.url }}">{{ childlink.title }}</a>
+                          <ul>
+                                {% for grand_child_link in linklists[grand_child_link_handle].links %}
+   
+                     
+                                    <li class="tas"><a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}/a></li>
+                                {% endfor %}
+                             </ul>
+                        <li>
+
+                        {% else %}
+                             <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                      {% endif %}
+                {% endfor %}
+            </ul>
+        </li>
+
+
+
+        
+
+        {% else %}
+
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endif %}
+      {%- endfor -%}
+    </ul>
+</nav>
+
+
+
+
+
+<script>
+
+  
+    $(document).ready(function() {
+    if ($('.tes')) {
+       jQuery('.tas').parent('ul').addClass('mega-menu');
+     jQuery('.tas').parent('ul').parent().addClass('megamenuwrap');
+   jQuery('.tas').parent('ul').removeClass('sub-menu');
+    } 
+    });
+    
+</script>
+
+
+{% comment %} <nav class="main-menu">
+  <ul>
+      <li><a href="shop.html">WOMEN</a></li>
+      <li><a href="shop.html">MEN</a></li>
+      <li class="menu-item-hot-children">
+          <a href="#">KIDS</a>
+          <ul class="sub-menu">
+              <li><a href="shop.html">Hot Sale</a></li>
+              <li><a href="shop.html">Discount</a></li>
+              <li><a href="shop.html">50% Off</a></li>
+          </ul>
+      </li>
+      <li class="menu-item-hot-children mega-menu-wrap">
+          <a href="#">Mega Menu</a>
+          <ul class="mega-menu">
+              <li><a href="shop.html">Pagelist 1</a>
+                  <ul>
+                      <li><a href="index.html">Home One</a></li>
+                      <li><a href="index-2.html">Home Two</a></li>
+                      <li><a href="index-3.html">Home Three</a></li>
+                      <li><a href="index-4.html">Home Four</a></li>
+                      <li><a href="index-5.html">Home Five</a></li>
+                      <li><a href="index-6.html">Home Six</a></li>
+
+                  </ul>
+              </li>
+              <li><a href="#">Pagelist 2</a>
+                  <ul>
+                      <li><a href="index-7.html">Home Seven</a></li>
+                      <li><a href="index-8.html">Home Eight</a></li>
+                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="about-2.html">About Us Two</a></li>
+                      <li><a href="team.html">Teachers</a></li>
+                      <li><a href="team-details.html">Teachers Details</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Pagelist 3</a>
+                  <ul>
+                      <li><a href="blog.html">Blog</a></li>
+                      <li><a href="blog-details.html">Blog Details</a></li>
+                      <li><a href="course.html">Courses</a></li>
+                      <li><a href="video-course.html">Video Courses</a></li>
+                      <li><a href="course-details.html">Course Details</a></li>
+                      <li><a href="event.html">Event</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Pagelist 4</a>
+                  <ul>
+                      <li><a href="event-details.html">Event Details</a></li>
+                      <li><a href="gallery.html">Gallery</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="cart.html">Shopping Cart</a></li>
+                      <li><a href="wishlist.html">Wishlist</a></li>
+                      <li><a href="error.html">Error Page</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </li>
+  </ul>
+</nav> {% endcomment %}
