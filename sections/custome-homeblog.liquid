@@ -51,7 +51,7 @@
                     
                     
                   
-                        <h3 class="blog-title"><a href="blog-details.html">{{ article.title }}</a></h3>
+                        <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
                         <p class="blog-text">{{ article.content | truncatewords: 15 }}</p>
                     </div>
                 </div>
