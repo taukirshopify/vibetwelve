@@ -102,26 +102,7 @@
 
   var splideCheck2 = document.getElementById("cat-slider");
   if (splideCheck2) {
-      var catsplide = new Splide( '#cat-slider', {
-        type: 'loop',
-        perPage: 3,
-        perMove: 1,
-        arrows: false,
-        pagination: false,
-        gap: 20,
-        breakpoints: {
-          1199: {
-            perPage: 2,
-          },
-          992: {
-            perPage: 2,
-          },
-          767: {
-            perPage: 1.5,
-          },
-        }
-      } );
-      catsplide.mount();    
+   
   }
 
   var splideCheck3 = document.getElementById("product-slider1");
@@ -157,80 +138,10 @@
   }
   var splideCheck4 = document.getElementById("product-slidertwo");
   if (splideCheck4) {
-      var pssplide = new Splide( '#product-slidertwo', {
-        type: 'loop',
-        perPage: 4,
-        perMove: 1,
-        drag   : 'free',
-        arrows: false,
-      autoplay:true,
-        speed:500,
-        pagination: false,
-        gap: 0,
-        autoScroll: {
-          speed: 0.5,
-        },
-        grid: {
-          rows: 2,
-          gap : {
-            row: '1rem',
-          },
-        },
-        breakpoints: {
-          1199: {
-            perPage: 3,
-          },
-          992: {
-            perPage: 2,
-          },
-          767: {
-            perPage: 1.5,
-            grid: {
-              rows: 1,
-              // gap : {
-              //   row: '2rem',
-              // },
-            },
-          },
-        }
-      } );
-      pssplide.mount(window.splide.Extensionstwo);    
+   
   }
-  var splideCheck4 = document.getElementById("img-slider");
-  if (splideCheck4) {
-      var imgsplide = new Splide( '#img-slider', {
-        type       : 'fade',
-        pagination : false,
-        arrows     : false,
-      } );
-      var splideCheck5 = document.getElementById("thumb-slider");
-      if (splideCheck5) {
-      var thumbSplide = new Splide( '#thumb-slider', {
-        type            : 'loop',
-        rewind          : false,
-        fixedWidth      : 90,
-        isNavigation    : true,
-        gap             : 10,
-        focus           : 'center',
-        pagination      : false,
-        cover           : true,
-        arrows          : false,
-        dragMinThreshold: {
-          mouse: 4,
-          touch: 10,
-        },
-        breakpoints : {
-          640: {
-            fixedWidth  : 70,
-           
-          },
-        },
-      } );
-      imgsplide.sync( thumbSplide );
-      imgsplide.mount();    
-      thumbSplide.mount();
-      }
-    }
+
+
   /*----------- 03. Content Toggle ----------*/
   $('.content-expand').on('click', function (e) {
       $(this).toggleClass('active')

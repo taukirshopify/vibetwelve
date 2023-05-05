@@ -2224,3 +2224,48 @@ div#Quantity-Form-template--18968547819830__main {
   }
 
 </style>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    
+  var splideCheck4 = document.getElementById("img-slider");
+  if (splideCheck4) {
+      var imgsplide = new Splide( '#img-slider', {
+        type       : 'fade',
+        pagination : false,
+        arrows     : false,
+      } );
+      var splideCheck5 = document.getElementById("thumb-slider");
+      if (splideCheck5) {
+      var thumbSplide = new Splide( '#thumb-slider', {
+        type            : 'loop',
+        rewind          : false,
+        fixedWidth      : 90,
+        isNavigation    : true,
+        gap             : 10,
+        focus           : 'center',
+        pagination      : false,
+        cover           : true,
+        arrows          : false,
+        dragMinThreshold: {
+          mouse: 4,
+          touch: 10,
+        },
+        breakpoints : {
+          640: {
+            fixedWidth  : 70,
+           
+          },
+        },
+      } );
+      imgsplide.sync( thumbSplide );
+      imgsplide.mount();    
+      thumbSplide.mount();
+      }
+    }
+  });
+
+    
+
+</script>

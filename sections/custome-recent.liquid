@@ -99,3 +99,29 @@
             ]
     }
 {% endschema %}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  var catsplide = new Splide( '#cat-slider', {
+    type: 'loop',
+    perPage: 3,
+    perMove: 1,
+    arrows: false,
+    pagination: false,
+    gap: 20,
+    breakpoints: {
+      1199: {
+        perPage: 2,
+      },
+      992: {
+        perPage: 2,
+      },
+      767: {
+        perPage: 1.5,
+      },
+    }
+  } );
+  catsplide.mount(); 
+});
+</script>
