@@ -34,7 +34,7 @@
                                 <ul>
                                       {% for grand_child_link in linklists[grand_child_link_handle].links %}
                                          
-                                          <li class="tas"><a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}/a></li>
+                                          <li ><a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}/a></li>
                                       {% endfor %}
                                    </ul>
                               <li>
@@ -93,7 +93,7 @@
                                 <ul>
                                       {% for grand_child_link in linklists[grand_child_link_handle].links %}
                                         
-                                          <li class="tas"><a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}/a></li>
+                                          <li><a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}</a></li>
                                       {% endfor %}
                                    </ul>
                               <li>
@@ -163,15 +163,15 @@
 </div>
 
 
-<script>
+{% comment %} <script>
 
   
   document.addEventListener("DOMContentLoaded", () => {
-    if (jQuery('.tes')) {
+    if (jQuery('.tas')) {
        jQuery('.tas').parent('ul').addClass('mega-menu');
      jQuery('.tas').parent('ul').parent().addClass('megamenuwrap');
    jQuery('.tas').parent('ul').removeClass('sub-menu');
     } 
     });
     
-</script>
+</script> {% endcomment %}

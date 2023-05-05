@@ -16,41 +16,7 @@
 
 
 
-  var splideCheck3 = document.getElementById("product-slider1");
-  if (splideCheck3) {
-      var psplide = new Splide( '#product-slider1', {
-        type: 'loop',
-        perPage: 4,
-        perMove: 1,
-        drag   : 'free',
-        arrows: false,
-        // autoplay:true,
-        pauseOnHover:true,  
-        // speed:500,
-        pagination: false,
-        gap: 20,
-        autoScroll: {
-          speed: 0.5,
-        },
-
-        breakpoints: {
-          1199: {
-            perPage: 3,
-          },
-          992: {
-            perPage: 2,
-          },
-          767: {
-            perPage: 1.5,
-          },
-        }
-      } );
-      psplide.mount(window.splide.Extensions);    
-  }
-  var splideCheck4 = document.getElementById("product-slidertwo");
-  if (splideCheck4) {
-   
-  }
+ 
 
 
   /*----------- 03. Content Toggle ----------*/
