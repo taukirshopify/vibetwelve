@@ -2239,12 +2239,13 @@ div#Quantity-Form-template--18968547819830__main {
       var splideCheck5 = document.getElementById("thumb-slider");
       if (splideCheck5) {
       var thumbSplide = new Splide( '#thumb-slider', {
-        type            : 'loop',
+        trimSpace: true,
         rewind          : false,
         fixedWidth      : 90,
         isNavigation    : true,
         gap             : 10,
-        focus           : 'center',
+
+    
         pagination      : false,
         cover           : true,
         arrows          : false,

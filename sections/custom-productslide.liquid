@@ -15,7 +15,7 @@
     Featured Area
 ============================== -->
 <div class="section-{{ section.id }}-padding">
-  <div class="container">
+  <div class="container-fluid">
       <div class="splide" id="product-slider1">
           <div class="splide__track">
               <div class="splide__list">
@@ -32,12 +32,12 @@
                       <a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp  {% if sold_out %} soldout-p {% endif%}" data-wow-delay="0.2s">
                           <div class="product-img">
                             
-                              {{ product.featured_image.src | image_url: width: 350 | image_tag:
+                              {{ product.featured_image.src | image_url: width: 450 | image_tag:
                            
                                 height: height,
                                 loading: 'lazy',
                                 format: 'webp',
-                                widths: '250, 350,'
+                                widths: '250, 350,450'
                               }}
                               {% if sold_out %}
                               <span class="tag ot-btn">Sold out</span>
