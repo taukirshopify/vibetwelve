@@ -75,8 +75,12 @@
 .cart-item__name {
   text-decoration: none;
   display: block;
+  font-size: 14px;
 }
-
+.drawer__heading {
+  margin: 0 0 1rem;
+  font-size: 22px;
+}
 .cart-item__name:hover {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
