@@ -44,6 +44,7 @@
                               loading: 'lazy',
                               height: height,
                               format: 'webp',
+                              class:'n-img',
                               widths: '250, 350,'
                             }}
                              {% else %}  
@@ -192,3 +193,11 @@
 });
 
 </script>
+
+<style>
+
+  .ot-product:hover .n-img {
+    visibility: hidden;
+    opacity: 0;
+}
+</style>
