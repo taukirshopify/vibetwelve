@@ -38,11 +38,6 @@
             "show_gift_card_recipient": false
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
-        },
         "share": {
           "type": "share",
           "settings": {
@@ -71,7 +66,6 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
         "share",
         "70789b57-b3fd-437a-ac12-d4a9de6fdae3"
       ],
