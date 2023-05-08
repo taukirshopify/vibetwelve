@@ -354,13 +354,15 @@ div#Quantity-Form-template--18968547819830__main {
                   
                             
                     
-                                      <div class="splide__slide">
-                                        <div class="img">
+                                      <div class="splide__slide ">
+                                        <div class="img text-center">
                                   
                                           {{ image  | image_url: width: 650 | image_tag:
                                             height: height,
                                             format: 'webp',
-                                            widths: '250, 350,450,550,650'
+                                           
+                                            widths: '250, 350,450,550,650',
+                                            class: 'd-inline-block'
                                           }}
                                         </div>
                                       </div>
@@ -381,12 +383,13 @@ div#Quantity-Form-template--18968547819830__main {
                             
                     
                                       <div class="splide__slide">
-                                        <div class="img">
+                                        <div class="img text-center">
                                   
                                           {{ image  | image_url: width: 65 | image_tag:
                                             height: height,
                                             format: 'webp',
-                                            widths: '25, 35,45,55,65'
+                                            widths: '25, 35,45,55,65',
+                                            class: 'd-inline-block'
                                           }}
                                         </div>
                                       </div>
@@ -2220,6 +2223,9 @@ div#Quantity-Form-template--18968547819830__main {
 }
 .seletor {
   margin-bottom: 0px;
+}
+.text-center img{
+  display: inline-block;
 }
   }
 
