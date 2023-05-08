@@ -57,6 +57,11 @@
             "image_ratio": "square",
             "enable_quick_add": false
           }
+        },
+        "26c9c6fd-a857-4011-be3d-f5f98013cad4": {
+          "type": "description",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -67,7 +72,8 @@
         "quantity_selector",
         "buy_buttons",
         "share",
-        "70789b57-b3fd-437a-ac12-d4a9de6fdae3"
+        "70789b57-b3fd-437a-ac12-d4a9de6fdae3",
+        "26c9c6fd-a857-4011-be3d-f5f98013cad4"
       ],
       "settings": {
         "enable_sticky_info": true,
