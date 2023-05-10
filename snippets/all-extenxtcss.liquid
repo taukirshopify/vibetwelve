@@ -1428,6 +1428,7 @@ a.text-body:hover {
 
 .main-menu > ul > li > a {
   padding: 15px 0;
+  text-decoration: none;
 }
 
 .main-menu > ul > li.active > a, .main-menu > ul > li:hover > a {
@@ -2311,6 +2312,7 @@ a.text-body:hover {
   width: 100%;
   padding: 30px;
   visibility: hidden;
+  {% comment %} border:6px rgba(0, 36, 243, 0.32); {% endcomment %}
   opacity: 0;
   -webkit-transform: translateY(40px);
       -ms-transform: translateY(40px);
@@ -2318,6 +2320,10 @@ a.text-body:hover {
   z-index: 3;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
+  background:white;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, .02);
 }
 
 .ot-product.style2:hover .product-img:before, .ot-product.style2:hover .product-img:after {

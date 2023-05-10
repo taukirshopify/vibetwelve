@@ -35,34 +35,34 @@
                         <a href="{{ product.url | within: collection }}" class="product-img">
                         {% if product.images.size > 1 %}
            
-                          {% for image in product.images limit: 2 %}
-               
+                            {% for image in product.images limit: 2 %}
+                
 
-                    {% if forloop.index == 1 %}
-                    
-                            {{ image | image_url: width: 350 | image_tag:
-                              loading: 'lazy',
-                              height: height,
-                              format: 'webp',
-                              class:'n-img',
-                              widths: '250, 350,'
-                            }}
-                             {% else %}  
+                            {% if forloop.index == 1 %}
+                      
+                              {{ image | image_url: width: 350 | image_tag:
+                                loading: 'lazy',
+                                height: height,
+                                format: 'webp',
+                                class:'n-img',
+                                widths: '250, 350,'
+                              }}
+                              {% else %}  
 
-                             {{ image | image_url: width: 350 | image_tag:
-                              loading: 'lazy',
-                              height: height,
-                              format: 'webp',
-                              class:'hover-img',
-                              widths: '250, 350,'
-                            }}
-                           {% endif %} 
-                          
-                           {% if sold_out %}
-                            <span class="tag ot-btn">Sold out</span>
-                            {% endif %}
+                              {{ image | image_url: width: 350 | image_tag:
+                                loading: 'lazy',
+                                height: height,
+                                format: 'webp',
+                                class:'hover-img',
+                                widths: '250, 350,'
+                              }}
+                            {% endif %} 
+                            
+                            {% if sold_out %}
+                              <span class="tag ot-btn">Sold out</span>
+                              {% endif %}
 
-                          {% endfor %}
+                            {% endfor %}
                           
                           {% else %}
 
@@ -77,7 +77,7 @@
                             <span class="tag ot-btn">Sold out</span>
                             {% endif %}
 
-                          {% endif %}
+                        {% endif %}
                         </a>
         
                         <div class="product-content">
@@ -86,8 +86,8 @@
                           <p class="price">{{ product.price | money }}</p>
                       </div>
 
+                      </div>
                     </div>
-                  </div>
 
 
               
