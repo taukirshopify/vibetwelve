@@ -2284,8 +2284,10 @@ a.text-body:hover {
           align-items: center;
   height: 100%;
 }
-
-.ot-product.style2 .product-img:before, .ot-product.style2 .product-img:after {
+.ot-product.style2{
+ position: relative;
+}
+.ot-product.style2:before,.ot-product.style2 .product-img:before, .ot-product.style2 .product-img:after {
   content: '';
   position: absolute;
   inset: 0;
@@ -2299,7 +2301,12 @@ a.text-body:hover {
           transform: scaleX(0);
   z-index: 1;
 }
-
+.ot-product.style2:before{
+  background-color: transparent;
+  border: 6px solid transparent;
+  opacity: 1;
+  visibility: visible;
+}
 .ot-product.style2 .product-img:before {
   background-color: transparent;
   border: 6px solid transparent;
@@ -2334,10 +2341,40 @@ a.text-body:hover {
           transform: scaleX(1);
 }
 
-.ot-product.style2:hover .product-img:before {
+
+
+
+
+.ot-product.style2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  z-index: 4;
+pointer-events: none;
+background-color: transparent;
+  border: 6px solid transparent;
+}
+.ot-product.style2:hover::after {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1);
+border: 6px solid;
+border-color: rgba(0, 36, 243, 0.32);
+}
+
+{% comment %} .ot-product.style2:hover .product-img:before {
   opacity: 1;
   border-color: rgba(0, 36, 243, 0.32);
-}
+} {% endcomment %}
 
 .ot-product.style2:hover .product-content {
   visibility: visible;
