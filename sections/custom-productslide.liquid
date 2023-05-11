@@ -22,10 +22,7 @@
               
                 {% assign collection = collections[section.settings.collection] %}
                 {% for product in collection.products limit: section.settings.p_limit %}
-                  {% assign sold_out = true %}
-                  {% if product.available %}
-                  {% assign sold_out = false %}
-                  {% endif %}
+                 
 
                 
                   <div class="splide__slide">
