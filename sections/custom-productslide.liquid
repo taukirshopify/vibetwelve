@@ -29,79 +29,12 @@
 
                 
                   <div class="splide__slide">
-                      <a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp  {% if sold_out %} soldout-p {% endif%}" data-wow-delay="0.2s">
-                          <div class="product-img">
-                            
-                            {% if product.images.size > 1 %}
-           
-                              {% for image in product.images limit: 2 %}
-                  
-  
-                              {% if forloop.index == 1 %}
-                        
-                                {{ image | image_url: width: 350 | image_tag:
-                                  loading: 'lazy',
-                                  height: height,
-                                  format: 'webp',
-                                  class:'n-img',
-                                  widths: '250, 350,'
-                                }}
-                                {% else %}  
-  
-                                {{ image | image_url: width: 350 | image_tag:
-                                  loading: 'lazy',
-                                  height: height,
-                                  format: 'webp',
-                                  class:'hover-img',
-                                  widths: '250, 350,'
-                                }}
-                              {% endif %} 
-                              
-                              {% if sold_out %}
-                                <span class="tag ot-btn">Sold out</span>
-                                {% endif %}
-  
-                              {% endfor %}
-                            
-                            {% else %}
-  
-                            {{ product.featured_image.src | image_url: width: 350 | image_tag:
-                              loading: 'lazy',
-                              height: height,
-                              format: 'webp',
-                              widths: '250, 350,'
-                            }}
-  
-                            {% if sold_out %}
-                              <span class="tag ot-btn">Sold out</span>
-                              {% endif %}
-  
-                          {% endif %}
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">{{product.vendor}}</p>
-                              <h3 class="product-title">{{ product.title }}</h3>
-                              <p class="price">{{ product.price | money }}</p>
-                          </div>
-                      </a>
+                       
+                              {% include 'product-grid-item' %}
                   </div>
 
 
-              
-
-                  {% comment %} <div class="splide__slide">
-                      <a href="shop-details.html" class="ot-product style2 sold-out wow fadeInUp" data-wow-delay="0.7s">
-                          <div class="product-img">
-                              <img src="assets/img/product/product_3_7.jpg" alt="Product Image">
-                              <span class="tag ot-btn">Sold out</span>
-                          </div>
-                          <div class="product-content">
-                              <p class="subtitle">LVIR</p>
-                              <h3 class="product-title">DOUBLE STRING KNIT SLEEVELESS (ORANGE)</h3>
-                              <p class="price">135,000원</p>
-                          </div>
-                      </a>
-                  </div> {% endcomment %}
+                    
                 {% endfor %}
 
                
@@ -161,22 +94,7 @@
 
 
 
-<style>
- .product-img .hover-img{
 
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  display: inline-block;
-  width: 100%;
-  height: -webkit-max-content;
-  height: max-content;
-}
-
-.soldout-p{
-
-}
-</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

@@ -2222,6 +2222,11 @@ a.text-body:hover {
   transition: 0.4s ease-in-out;
 }
 
+.ot-product:hover .n-img {
+  visibility: hidden;
+  opacity: 0;
+}
+
 .product-img .hover-img {
   visibility: hidden;
   opacity: 0;
@@ -2229,6 +2234,13 @@ a.text-body:hover {
   inset: 0;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  width: 100%;
+  height: -webkit-max-content;
+  height: max-content;
 }
 
 .ot-product {

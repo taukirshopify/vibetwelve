@@ -1,0 +1,55 @@
+<a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp  {% if sold_out %} soldout-p {% endif%}" data-wow-delay="0.2s">
+    <div class="product-img">
+      
+      {% if product.images.size > 1 %}
+
+        {% for image in product.images limit: 2 %}
+
+
+        {% if forloop.index == 1 %}
+  
+          {{ image | image_url: width: 350 | image_tag:
+            loading: 'lazy',
+            height: height,
+            format: 'webp',
+            class:'n-img',
+            widths: '250, 350,'
+          }}
+          {% else %}  
+
+          {{ image | image_url: width: 350 | image_tag:
+            loading: 'lazy',
+            height: height,
+            format: 'webp',
+            class:'hover-img',
+            widths: '250, 350,'
+          }}
+        {% endif %} 
+        
+        {% if sold_out %}
+          <span class="tag ot-btn">Sold out</span>
+          {% endif %}
+
+        {% endfor %}
+      
+      {% else %}
+
+      {{ product.featured_image.src | image_url: width: 350 | image_tag:
+        loading: 'lazy',
+        height: height,
+        format: 'webp',
+        widths: '250, 350,'
+      }}
+
+      {% if sold_out %}
+        <span class="tag ot-btn">Sold out</span>
+        {% endif %}
+
+    {% endif %}
+    </div>
+    <div class="product-content">
+        <p class="subtitle">{{product.vendor}}</p>
+        <h3 class="product-title">{{ product.title }}</h3>
+        <p class="price">{{ product.price | money }}</p>
+    </div>
+</a>

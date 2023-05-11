@@ -31,62 +31,9 @@
 
                
                   <div class="splide__slide">
-                      <div class="ot-product  wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="{{ product.url | within: collection }}" class="product-img">
-                        {% if product.images.size > 1 %}
-           
-                            {% for image in product.images limit: 2 %}
-                
+                    {% include 'product-grid-item' %}
 
-                            {% if forloop.index == 1 %}
-                      
-                              {{ image | image_url: width: 350 | image_tag:
-                                loading: 'lazy',
-                                height: height,
-                                format: 'webp',
-                                class:'n-img',
-                                widths: '250, 350,'
-                              }}
-                              {% else %}  
-
-                              {{ image | image_url: width: 350 | image_tag:
-                                loading: 'lazy',
-                                height: height,
-                                format: 'webp',
-                                class:'hover-img',
-                                widths: '250, 350,'
-                              }}
-                            {% endif %} 
-                            
-                            {% if sold_out %}
-                              <span class="tag ot-btn">Sold out</span>
-                              {% endif %}
-
-                            {% endfor %}
-                          
-                          {% else %}
-
-                          {{ product.featured_image.src | image_url: width: 350 | image_tag:
-                            loading: 'lazy',
-                            height: height,
-                            format: 'webp',
-                            widths: '250, 350,'
-                          }}
-
-                          {% if sold_out %}
-                            <span class="tag ot-btn">Sold out</span>
-                            {% endif %}
-
-                        {% endif %}
-                        </a>
-        
-                        <div class="product-content">
-                          <p class="subtitle">{{product.vendor}}</p>
-                          <h3 class="product-title">{{ product.title }}</h3>
-                          <p class="price">{{ product.price | money }}</p>
-                      </div>
-
-                      </div>
+              
                     </div>
 
 
@@ -203,10 +150,3 @@
 
 </script>
 
-<style>
-
-  .ot-product:hover .n-img {
-    visibility: hidden;
-    opacity: 0;
-}
-</style>
