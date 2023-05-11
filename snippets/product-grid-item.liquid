@@ -7,7 +7,9 @@
 <a href="{{ product.url | within: collection }}" class="ot-product style2  wow fadeInUp  {% if sold_out %} soldout-p {% endif%}" data-wow-delay="0.2s">
     <div class="product-img">
       
-      {% if product.images.size > 1 %}
+      {% if product.images.size < 1 %}
+        {{ 'product-1' | placeholder_svg_tag }}
+      {% elsif product.images.size > 1 %}
 
         {% for image in product.images limit: 2 %}
 
@@ -40,12 +42,12 @@
       
       {% else %}
 
-      {{ product.featured_image.src | image_url: width: 350 | image_tag:
+    {{ product.featured_image.src | image_url: width: 350 | image_tag:
         loading: 'lazy',
         height: height,
         format: 'webp',
         widths: '250, 350,'
-      }}
+      }} 
 
       {% if sold_out %}
         <span class="tag ot-btn">Sold out</span>
