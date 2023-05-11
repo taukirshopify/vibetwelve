@@ -126,7 +126,22 @@ Hero Area
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
 <style>
-
+  .sub-menu li:before {
+    content: "\2014";
+    position: absolute;
+    margin-left: -18px;
+    top: 30%;
+    -webkit-transform: translateY(-23.2%);
+    -ms-transform: translateY(-23.2%);
+    transform: translateY(-23.2%);
+  }
+  .sub-menu li{
+   position: relative;
+  }
+  .ot-mobile-menu ul {
+    margin: 0 0 0 5px;
+    padding: 0 0;
+}
 </style>
 
 
