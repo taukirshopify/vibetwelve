@@ -223,6 +223,7 @@ div#Quantity-Form-template--18968547819830__main {
                       <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">
                         {{- block.settings.text -}}
                       </a>
+                    {% comment %}
                     {%- when 'share' -%}
                       <div class="d-none d-lg-block">
                 
@@ -233,6 +234,7 @@ div#Quantity-Form-template--18968547819830__main {
                       %}
 
                     </div>
+                    {% endcomment %}
 
                     {%- when 'variant_picker' -%}
                       {% render 'product-variant-picker-new', product: product, block: block, product_form_id: product_form_id %}
