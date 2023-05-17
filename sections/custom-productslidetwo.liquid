@@ -21,7 +21,7 @@
       <div class="splide" id="product-slidertwo">
           <div class="splide__track">
               <div class="splide__list">
-              
+
                 {% assign collection = collections[section.settings.collection] %}
                 {% for product in collection.products limit: section.settings.p_limit %}
                   {% assign sold_out = true %}
@@ -29,19 +29,19 @@
                   {% assign sold_out = false %}
                   {% endif %}
 
-               
+
                   <div class="splide__slide">
                     {% include 'product-grid-item' %}
 
-              
+
                     </div>
 
 
-              
+
 
                 {% endfor %}
 
-               
+
 
               </div>
           </div>
@@ -101,7 +101,7 @@
   document.addEventListener('DOMContentLoaded', function () {
   var pssplide = new Splide( '#product-slidertwo', {
     type: 'loop',
-    perPage: 4,
+    perPage: 3,
     perMove: 1,
     drag   : 'free',
     arrows: false,
@@ -113,7 +113,7 @@
       speed: 0.5,
     },
     grid: {
-      rows: 2,
+      rows: 3,
       gap : {
         row: '1rem',
       },
@@ -129,23 +129,17 @@
         perPage: 1.5,
         grid: {
           rows: 1,
-          // gap : {
-          //   row: '2rem',
-          // },
         },
       },
       560: {
         perPage: 1,
         grid: {
           rows: 1,
-          // gap : {
-          //   row: '2rem',
-          // },
         },
       },
     }
   } );
-  pssplide.mount(window.splide.Extensionstwo); 
+  pssplide.mount(window.splide.Extensionstwo);
 });
 
 </script>
