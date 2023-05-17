@@ -6,3 +6,7 @@
 .shopify-policy__container {
   max-width: 120ch !important;
 }
+
+.product-form__submit {
+  background-color: var(--theme-color);
+}
