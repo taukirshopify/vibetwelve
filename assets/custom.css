@@ -3,5 +3,5 @@
 }
 
 .shopify-policy__container {
-  max-width: 120ch;
+  max-width: 120ch !important;
 }
