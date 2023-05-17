@@ -9,4 +9,5 @@
 
 .product-form__submit {
   background-color: var(--theme-color);
+  color: #fff;
 }
