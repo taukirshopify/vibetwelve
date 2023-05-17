@@ -18,3 +18,7 @@
 .price__badge-sold-out {
   text-transform: uppercase;
 }
+
+.summary__title > h3 {
+  font-size: 14px;
+}
