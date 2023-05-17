@@ -1,3 +1,7 @@
 .shopify-policy__title h1 {
   font-size: 14px !important;
 }
+
+.shopify-policy__container {
+  max-width: 120ch;
+}
