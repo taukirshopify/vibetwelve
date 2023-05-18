@@ -22,3 +22,7 @@
 .summary__title > h3 {
   font-size: 14px;
 }
+
+.gs3-soldout-badge {
+  background-color: #222;
+}
