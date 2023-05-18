@@ -26,3 +26,7 @@
 .gs3-soldout-badge {
   background-color: #222 !important;
 }
+
+.gs3-myacc:hover, .gs3-bag:hover {
+  font-weight: 700;
+}
