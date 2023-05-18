@@ -333,6 +333,7 @@ cart-drawer-items {
 
   text-transform: uppercase;
   background-color: var(--theme-color);
+  font-size: 14px;
 }
 
 .drawer__footer .cart__dynamic-checkout-buttons {
