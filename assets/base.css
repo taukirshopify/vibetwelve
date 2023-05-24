@@ -3121,8 +3121,49 @@ details-disclosure > details {
   margin: -0.5rem 0 -0.5rem 0;
 }
 
-/* Ambient animation */
 
+/*------------Marquee------------*/
+.block-marquee{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  background: rgb(211, 241, 233);
+}
+
+.marquee-scrolling__list{
+  grid: auto / auto-flow max-content;
+  justify-content: center;
+  display: grid;
+  overflow: hidden;
+}
+
+.marquee-scrolling__list .item {
+  display: grid;
+  place-items: center;
+  grid: auto / auto-flow auto 5rem;
+  animation: translatefull var(--marquee-animation-duration, 0s) linear infinite;
+}
+
+.marquee-scrolling__list .item .shape-circle{
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  border-radius: 10px;
+  display: block;
+}
+
+@keyframes translatefull {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% * var(--transform-logical-flip)));
+  }
+}
+
+/* Ambient animation */
 @media (prefers-reduced-motion: no-preference) {
   .animate--ambient > img,
   .animate--ambient > svg {
