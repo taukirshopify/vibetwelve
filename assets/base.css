@@ -3147,6 +3147,10 @@ details-disclosure > details {
   animation: translatefull var(--marquee-animation-duration, 0s) linear infinite;
 }
 
+.marquee-scrolling__list .text-base{
+  margin: 0px;
+}
+
 .marquee-scrolling__list .item .shape-circle{
   width: 10px;
   height: 10px;
