@@ -3198,11 +3198,11 @@ details-disclosure > details {
 }
 
 @media screen and (max-width: 768px) {
-  .section-marquee.hide-small{
+  .section-marquee.small-hide{
     display: none;
   }
 
-  .section-marquee.hide-large{
+  .section-marquee.large-hide{
     display: block;
   }
 }
