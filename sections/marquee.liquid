@@ -4,14 +4,14 @@
           class="marquee-scrolling__list items"
           scrolling-speed="10">
             {% for block in section.blocks %}
-                <span class="item">
-                    {% if block.settings.text != blank %}
+                {% if block.settings.text != blank %}
+                    <span class="item">
                         <p class="bold text-base">
                             {{ block.settings.text }}
                         </p>
-                    {% endif %}
-                    <span class="shape-circle shape--sm"></span>
-                </span>
+                        <span class="shape-circle shape--sm"></span>
+                    </span>
+                {% endif %}
             {% endfor %}
         </marquee-text>
     </div>
