@@ -3150,6 +3150,7 @@ details-disclosure > details {
 
 .marquee-scrolling__list .text-base{
   margin: 0px;
+  color: inherit;
 }
 
 .marquee-scrolling__list .item .shape-circle{
