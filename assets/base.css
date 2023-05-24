@@ -1,4 +1,8 @@
 /* Color custom properties */
+:root{
+  --transform-logical-flip: 1;
+  --marquee-animation-duration: 10s
+}
 
 :root,
 .color-background-1 {
