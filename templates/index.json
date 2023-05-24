@@ -63,6 +63,8 @@
         "ea43ed7c-1650-4018-8d35-049df0ede3aa"
       ],
       "settings": {
+        "hide_desktop": true,
+        "hide_mobile": false,
         "color": "#0024f3",
         "background": "#ffffff",
         "border_color": "#0024f3",
@@ -143,6 +145,8 @@
         "1c372b22-30e2-4c4e-bdbf-f32ea49587b8"
       ],
       "settings": {
+        "hide_desktop": false,
+        "hide_mobile": true,
         "color": "#0024f3",
         "background": "#ffffff",
         "border_color": "#0024f3",
