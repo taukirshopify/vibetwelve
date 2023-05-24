@@ -4,7 +4,7 @@
           class="marquee-scrolling__list items"
           scrolling-speed="10">
             {% for block in section.blocks %}
-                {% if block.settings.title != blank %}
+                {% if block.settings.text_first != blank %}
                     <span class="item">
                         <p class="bold text-base">
                             {{ block.settings.text_first }}
@@ -65,7 +65,12 @@
             "settings": [
                 {
                     "type": "text",
-                    "id": "title",
+                    "id": "text_first",
+                    "label": "Text"
+                },
+                {
+                    "type": "text",
+                    "id": "text_last",
                     "label": "Text"
                 }
             ]
