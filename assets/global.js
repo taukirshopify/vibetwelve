@@ -1024,6 +1024,29 @@ class VariantRadios extends VariantSelects {
 
 customElements.define('variant-radios', VariantRadios);
 
+class MarqueeText extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    const scrollingSpeed = parseInt(
+        this.getAttribute("scrolling-speed") || 5
+      ),
+      contentWidth = this.offsetWidth,
+      slowFactor = 1 + (Math.min(1600, contentWidth) - 375) / (1600 - 375);
+    this.style.setProperty(
+      "--marquee-animation-duration",
+      `${(
+        (scrollingSpeed *
+          slowFactor *
+          this.querySelector("span").clientWidth) /
+        contentWidth
+      ).toFixed(3)}s`
+    );
+  }
+}
+customElements.define("marquee-text", MarqueeText);
+
 class ProductRecommendations extends HTMLElement {
   constructor() {
     super();
