@@ -3131,6 +3131,10 @@ details-disclosure > details {
   border-width: 1px 0 1px 0;
 }
 
+.section-marquee.hide-large{
+  display: none;
+}
+
 .block-marquee{
   display: flex;
   align-items: center;
