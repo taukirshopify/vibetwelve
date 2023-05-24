@@ -14,7 +14,14 @@
     }
   }
 {%- endstyle -%}
-<div class="section-marquee section-{{ section.id }}-padding">
+<div class="section-marquee section-{{ section.id }}-padding
+    {% if section.settings.hide_desktop %}
+
+    {% endif %}
+    {% if section.settings.hide_mobile %}
+
+    {% endif %}
+    ">
     {% if section.blocks.size > 1 %}
         <div class="block-marquee">
             <marquee-text
