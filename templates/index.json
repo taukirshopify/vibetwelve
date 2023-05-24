@@ -73,8 +73,9 @@
         "ea43ed7c-1650-4018-8d35-049df0ede3aa"
       ],
       "settings": {
+        "color": "#0024f3",
         "background": "#ffffff",
-        "border_color": "#ffffff",
+        "border_color": "#0024f3",
         "padding_top": 0,
         "padding_bottom": 0
       }
