@@ -16,10 +16,10 @@
 {%- endstyle -%}
 <div class="section-marquee section-{{ section.id }}-padding
     {% if section.settings.hide_desktop %}
-
+        large-hide
     {% endif %}
     {% if section.settings.hide_mobile %}
-
+        small-hide
     {% endif %}
     ">
     {% if section.blocks.size > 1 %}
