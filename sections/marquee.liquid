@@ -13,28 +13,29 @@
   }
 {%- endstyle -%}
 <div class="section-marquee section-{{ section.id }}-padding">
-{% if section.blocks.size > 1 %}
-    <div class="block-marquee">
-        <marquee-text
-          class="marquee-scrolling__list items"
-          scrolling-speed="10">
-            {% for block in section.blocks %}
-                {% if block.settings.text_first != blank %}
-                    <span class="item">
-                        <p class="bold text-base">
-                            {{ block.settings.text_first }}
-                        </p>
-                        <span class="shape-circle shape--sm"></span>
-                        <p class="bold text-base">
-                            {{ block.settings.text_last }}
-                        </p>
-                        <span class="shape-circle shape--sm"></span>
-                    </span>
-                {% endif %}
-            {% endfor %}
-        </marquee-text>
-    </div>
-{% endif %}
+    {% if section.blocks.size > 1 %}
+        <div class="block-marquee">
+            <marquee-text
+            class="marquee-scrolling__list items"
+            scrolling-speed="10">
+                {% for block in section.blocks %}
+                    {% if block.settings.text_first != blank %}
+                        <span class="item">
+                            <p class="bold text-base">
+                                {{ block.settings.text_first }}
+                            </p>
+                            <span class="shape-circle shape--sm"></span>
+                            <p class="bold text-base">
+                                {{ block.settings.text_last }}
+                            </p>
+                            <span class="shape-circle shape--sm"></span>
+                        </span>
+                    {% endif %}
+                {% endfor %}
+            </marquee-text>
+        </div>
+    {% endif %}
+</div>
 
 {% schema %}
   {
