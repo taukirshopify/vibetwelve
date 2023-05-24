@@ -40,13 +40,37 @@
             "text_first": "GET 20% OFF YOUR FIRST ORDER.",
             "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
           }
+        },
+        "451687a2-16f1-4616-9a39-a5dd1e11bf1f": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        },
+        "8bda8bb7-7d84-499a-83a4-384c74b7d130": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        },
+        "ea43ed7c-1650-4018-8d35-049df0ede3aa": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
         }
       },
       "block_order": [
         "4a65c1e0-2e66-424e-bb1c-3f9deb1f3fc9",
         "71e5883f-3538-4ff1-a11d-e3525b96fa08",
         "2c73df1e-260a-4697-aba0-261269184ad5",
-        "6349d479-33a6-4854-ab80-478d494c45ce"
+        "6349d479-33a6-4854-ab80-478d494c45ce",
+        "451687a2-16f1-4616-9a39-a5dd1e11bf1f",
+        "8bda8bb7-7d84-499a-83a4-384c74b7d130",
+        "ea43ed7c-1650-4018-8d35-049df0ede3aa"
       ],
       "settings": {
         "background": "#ffffff",
