@@ -3153,10 +3153,10 @@ details-disclosure > details {
 }
 
 .marquee-scrolling__list .item .shape-circle{
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   background: currentColor;
-  border-radius: 10px;
+  border-radius: 6px;
   display: block;
 }
 
