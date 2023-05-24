@@ -3136,7 +3136,7 @@ details-disclosure > details {
 }
 
 .section-marquee.small-hide{
-  display: none;
+  display: block;
 }
 
 .block-marquee{
