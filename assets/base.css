@@ -3131,11 +3131,11 @@ details-disclosure > details {
   border-width: 1px 0 1px 0;
 }
 
-.section-marquee.hide-large{
+.section-marquee.large-hide{
   display: none;
 }
 
-.section-marquee.hide-small{
+.section-marquee.small-hide{
   display: none;
 }
 
