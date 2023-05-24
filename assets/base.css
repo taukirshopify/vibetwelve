@@ -3127,6 +3127,11 @@ details-disclosure > details {
 
 
 /*------------Marquee------------*/
+{
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+}
+
 .block-marquee{
   display: flex;
   align-items: center;
