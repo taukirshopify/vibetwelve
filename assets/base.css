@@ -3197,4 +3197,8 @@ details-disclosure > details {
   .section-marquee.hide-small{
     display: none;
   }
+
+  .section-marquee.hide-large{
+    display: block;
+  }
 }
