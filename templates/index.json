@@ -1,15 +1,5 @@
 {
   "sections": {
-    "ebb76d87-d0dc-4205-adda-9c2cc13caf5a": {
-      "type": "custome-banner",
-      "settings": {
-        "img": "shopify:\/\/shop_images\/hero_1.jpg",
-        "h1": "WHAT ARE THOSE?",
-        "p": "The way forward for the creative director in fashion presents multiple options, all situated between the pattern-cutter and",
-        "btn": "Discover",
-        "url": "shopify:\/\/collections"
-      }
-    },
     "25f33c12-be91-486a-894b-2c613a05b087": {
       "type": "marquee",
       "blocks": {
@@ -71,6 +61,86 @@
         "451687a2-16f1-4616-9a39-a5dd1e11bf1f",
         "8bda8bb7-7d84-499a-83a4-384c74b7d130",
         "ea43ed7c-1650-4018-8d35-049df0ede3aa"
+      ],
+      "settings": {
+        "color": "#0024f3",
+        "background": "#ffffff",
+        "border_color": "#0024f3",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "ebb76d87-d0dc-4205-adda-9c2cc13caf5a": {
+      "type": "custome-banner",
+      "settings": {
+        "img": "shopify:\/\/shop_images\/hero_1.jpg",
+        "h1": "WHAT ARE THOSE?",
+        "p": "The way forward for the creative director in fashion presents multiple options, all situated between the pattern-cutter and",
+        "btn": "Discover",
+        "url": "shopify:\/\/collections"
+      }
+    },
+    "b8126cdf-9327-4eb5-b96d-1cbe23e11649": {
+      "type": "marquee",
+      "blocks": {
+        "57cd90c5-4b55-4e29-be94-66a497d7baf8": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        },
+        "66774919-20d0-440f-81ca-d91b2b49d677": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        },
+        "f96e8454-c4a0-4ffb-b62a-42800cee2d37": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        },
+        "ebc77f01-ae80-43b1-89d8-a508d714c990": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        },
+        "c14fecce-1356-4ea7-bcc0-ca4ec4addef8": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        },
+        "173d5a3c-8d76-4f88-8400-1cbf2519f06c": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        },
+        "1c372b22-30e2-4c4e-bdbf-f32ea49587b8": {
+          "type": "text",
+          "settings": {
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        }
+      },
+      "block_order": [
+        "57cd90c5-4b55-4e29-be94-66a497d7baf8",
+        "66774919-20d0-440f-81ca-d91b2b49d677",
+        "f96e8454-c4a0-4ffb-b62a-42800cee2d37",
+        "ebc77f01-ae80-43b1-89d8-a508d714c990",
+        "c14fecce-1356-4ea7-bcc0-ca4ec4addef8",
+        "173d5a3c-8d76-4f88-8400-1cbf2519f06c",
+        "1c372b22-30e2-4c4e-bdbf-f32ea49587b8"
       ],
       "settings": {
         "color": "#0024f3",
@@ -172,8 +242,9 @@
     }
   },
   "order": [
-    "ebb76d87-d0dc-4205-adda-9c2cc13caf5a",
     "25f33c12-be91-486a-894b-2c613a05b087",
+    "ebb76d87-d0dc-4205-adda-9c2cc13caf5a",
+    "b8126cdf-9327-4eb5-b96d-1cbe23e11649",
     "cea5b9ae-7ed2-4888-bc7f-d5845d84a31b",
     "4914e2b7-12e1-4652-b03d-8a55cd949117",
     "72586b2f-4702-4b7f-87fd-3f06464c176d",
