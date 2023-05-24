@@ -16,44 +16,41 @@
         "4a65c1e0-2e66-424e-bb1c-3f9deb1f3fc9": {
           "type": "text",
           "settings": {
-            "title": "GET 20% OFF YOUR FIRST ORDER."
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
           }
         },
-        "f4b489da-c624-4b96-8485-d0c826632f6f": {
+        "71e5883f-3538-4ff1-a11d-e3525b96fa08": {
           "type": "text",
           "settings": {
-            "title": "NEW ARRIVALS SS23 COLLECTION. SS23"
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
           }
         },
-        "281b3031-b155-4452-ae38-9b3ae3336f90": {
+        "2c73df1e-260a-4697-aba0-261269184ad5": {
           "type": "text",
           "settings": {
-            "title": "GET 20% OFF YOUR FIRST ORDER."
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
           }
         },
-        "5c7823a0-93ba-42ec-9d79-3d7010ff0982": {
+        "6349d479-33a6-4854-ab80-478d494c45ce": {
           "type": "text",
           "settings": {
-            "title": "GET 20% OFF YOUR FIRST ORDER."
-          }
-        },
-        "08432288-e9e9-4a7e-b5c6-a3cd91632334": {
-          "type": "text",
-          "settings": {
-            "title": "NEW ARRIVALS SS23 COLLECTION. SS23"
+            "text_first": "GET 20% OFF YOUR FIRST ORDER.",
+            "text_last": "NEW ARRIVALS SS23 COLLECTION. SS23"
           }
         }
       },
       "block_order": [
         "4a65c1e0-2e66-424e-bb1c-3f9deb1f3fc9",
-        "f4b489da-c624-4b96-8485-d0c826632f6f",
-        "281b3031-b155-4452-ae38-9b3ae3336f90",
-        "5c7823a0-93ba-42ec-9d79-3d7010ff0982",
-        "08432288-e9e9-4a7e-b5c6-a3cd91632334"
+        "71e5883f-3538-4ff1-a11d-e3525b96fa08",
+        "2c73df1e-260a-4697-aba0-261269184ad5",
+        "6349d479-33a6-4854-ab80-478d494c45ce"
       ],
       "settings": {
-        "background": "#FFFFFF",
-        "border_color": "#FFFFFF",
+        "background": "#ffffff",
+        "border_color": "#ffffff",
         "padding_top": 36,
         "padding_bottom": 36
       }
