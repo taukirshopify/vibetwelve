@@ -10,6 +10,54 @@
         "url": "shopify:\/\/collections"
       }
     },
+    "25f33c12-be91-486a-894b-2c613a05b087": {
+      "type": "marquee",
+      "blocks": {
+        "4a65c1e0-2e66-424e-bb1c-3f9deb1f3fc9": {
+          "type": "text",
+          "settings": {
+            "title": "GET 20% OFF YOUR FIRST ORDER."
+          }
+        },
+        "f4b489da-c624-4b96-8485-d0c826632f6f": {
+          "type": "text",
+          "settings": {
+            "title": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        },
+        "281b3031-b155-4452-ae38-9b3ae3336f90": {
+          "type": "text",
+          "settings": {
+            "title": "GET 20% OFF YOUR FIRST ORDER."
+          }
+        },
+        "5c7823a0-93ba-42ec-9d79-3d7010ff0982": {
+          "type": "text",
+          "settings": {
+            "title": "GET 20% OFF YOUR FIRST ORDER."
+          }
+        },
+        "08432288-e9e9-4a7e-b5c6-a3cd91632334": {
+          "type": "text",
+          "settings": {
+            "title": "NEW ARRIVALS SS23 COLLECTION. SS23"
+          }
+        }
+      },
+      "block_order": [
+        "4a65c1e0-2e66-424e-bb1c-3f9deb1f3fc9",
+        "f4b489da-c624-4b96-8485-d0c826632f6f",
+        "281b3031-b155-4452-ae38-9b3ae3336f90",
+        "5c7823a0-93ba-42ec-9d79-3d7010ff0982",
+        "08432288-e9e9-4a7e-b5c6-a3cd91632334"
+      ],
+      "settings": {
+        "background": "#FFFFFF",
+        "border_color": "#FFFFFF",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "9848331a-a568-4790-8c67-e7126c8bb8ea": {
       "type": "custome-running",
       "settings": {
@@ -108,6 +156,7 @@
   },
   "order": [
     "ebb76d87-d0dc-4205-adda-9c2cc13caf5a",
+    "25f33c12-be91-486a-894b-2c613a05b087",
     "9848331a-a568-4790-8c67-e7126c8bb8ea",
     "cea5b9ae-7ed2-4888-bc7f-d5845d84a31b",
     "4914e2b7-12e1-4652-b03d-8a55cd949117",
