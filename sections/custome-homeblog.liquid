@@ -52,7 +52,7 @@
                     
                   
                         <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
-                        <p class="blog-text">{{ article.content | truncatewords: 15 }}</p>
+                        <p class="blog-text">{{ article.content | truncatewords: 15 | strip_html  }}</p>
                     </div>
                 </div>
             </div>
