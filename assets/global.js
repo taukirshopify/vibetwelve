@@ -1083,7 +1083,7 @@ class PaginationInfinite extends HTMLElement{
           var newContainer = this.request.responseXML.getElementById('product-grid');
           var newPagination = this.request.responseXML.querySelector('[data-pagination]');
 
-          this.containerElement.insertAdjacentHTML('beforeend', newContainer.innerHTML);
+          this.containerElement.innerHTML = newContainer.innerHTML;
           this.nextPageLinkElement.classList.remove('loading');
           this.nextPageLinkElement.querySelector('.loading-overlay__spinner').classList.add('hidden');
 
