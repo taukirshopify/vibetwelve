@@ -1,10 +1,10 @@
 <div class="section-collection-refresh section-{{ section.id }}-padding
     <div class="block-marquee">
-        {%- paginate collection.products by section.settings.products_per_page -%}
+        {%- paginate section.settings.collection.products by section.settings.products_per_page -%}
             <ul id="product-grid" data-id="{{ section.id }}" class="
                 grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
-                grid--{{ section.settings.columns_desktop }}-col-desktop">
-                {%- for product in collection.products -%}
+                grid--4-col-desktop">
+                {%- for product in section.settings.collection.products.products -%}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}
                     {%- assign lazy_load = true -%}
