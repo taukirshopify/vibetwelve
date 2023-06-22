@@ -1,0 +1,33 @@
+{% comment %}
+    Renders a set of links for paginated results. Must be used within paginate tags.
+
+    Usage:
+    {% paginate results by 2 %}
+      {% render 'pagination', paginate: paginate, anchor: '#yourID' %}
+    {% endpaginate %}
+
+    Accepts:
+    - paginate: {Object}
+    - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
+{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'component-pagination.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-pagination.css' | asset_url | stylesheet_tag }}</noscript>
+{%- if paginate.parts.size > 0 -%}
+    <pagination-infinite>
+        <div class="block-pagination__infinite">
+            <div class="pagination-inner" data-pagination>
+                {%- if paginate.next -%}
+                    <a class="button button--secondary" title="{{ 'general.pagination.next' | t }}" href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}" rel="next" data-load-more>
+                        <span>{{ 'Load more' }}</span>
+                        <div class="loading-overlay__spinner hidden">
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                            </svg>
+                        </div>
+                    </a>
+                {%- endif -%}
+            </div>
+        </div>
+    </pagination-infinite>
+{%- endif -%}

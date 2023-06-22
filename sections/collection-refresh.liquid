@@ -1,18 +1,24 @@
 <div class="section-collection-refresh section-{{ section.id }}-padding
     <div class="block-marquee">
-        <ul id="product-grid" data-id="{{ section.id }}" class="
-            grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
-            grid--{{ section.settings.columns_desktop }}-col-desktop">
-            {%- for product in collection.products -%}
-              {% assign lazy_load = false %}
-              {%- if forloop.index > 2 -%}
-                {%- assign lazy_load = true -%}
-              {%- endif -%}
-              <li class="grid__item">
-                {% include 'product-grid-item' %}
-              </li>
-            {%- endfor -%}
-        </ul>
+        {%- paginate collection.products by section.settings.products_per_page -%}
+            <ul id="product-grid" data-id="{{ section.id }}" class="
+                grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
+                grid--{{ section.settings.columns_desktop }}-col-desktop">
+                {%- for product in collection.products -%}
+                {% assign lazy_load = false %}
+                {%- if forloop.index > 2 -%}
+                    {%- assign lazy_load = true -%}
+                {%- endif -%}
+                <li class="grid__item">
+                    {% include 'product-grid-item' %}
+                </li>
+                {%- endfor -%}
+            </ul>
+
+            {%- if paginate.pages > 1 -%}
+                {% render 'pagination-infinite', paginate: paginate %}
+            {%- endif -%}
+        {% endpaginate %}
     </div>
 </div>
 
