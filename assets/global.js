@@ -1047,6 +1047,67 @@ class MarqueeText extends HTMLElement {
 }
 customElements.define("marquee-text", MarqueeText);
 
+class PaginationInfinite extends HTMLElement{
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+
+    this.containerElement = document.getElementById('product-grid');
+    this.paginationElement = this.querySelector('[data-pagination]');
+
+    if( !this.paginationElement ){
+      return;
+    }
+
+    this.nextPageLinkElement = this.paginationElement.querySelector('a');
+
+    if (typeof this.nextPageLinkElement !== 'undefined' && this.nextPageLinkElement !== null) {
+      this.nextPageLinkElement.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        this.nextPageUrl = this.nextPageLinkElement.href;
+        this.nextPageLinkElement.classList.add('loading');
+        this.nextPageLinkElement.querySelector('.loading-overlay__spinner').classList.remove('hidden');
+
+        this.request = new XMLHttpRequest();
+        this.request.onreadystatechange = function success() {
+          if (!this.request.responseXML) {
+            return;
+          }
+          if (!this.request.readyState === 4 || !this.request.status === 200) {
+            return;
+          }
+
+          var newContainer = this.request.responseXML.getElementById('product-grid');
+          var newPagination = this.request.responseXML.querySelector('[data-pagination]');
+
+          this.containerElement.insertAdjacentHTML('beforeend', newContainer.innerHTML);
+          this.nextPageLinkElement.classList.remove('loading');
+          this.nextPageLinkElement.querySelector('.loading-overlay__spinner').classList.add('hidden');
+
+          if (typeof newPagination === 'undefined') {
+            this.paginationElement.innerHTML = '';
+          } else {
+            let url = newPagination.querySelector('[data-load-more]').href;
+            this.paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+          }
+        }.bind(this);
+
+        this.request.open('GET', this.nextPageUrl);
+        this.request.responseType = 'document';
+        this.request.send();
+
+      });
+
+
+    }
+
+  }
+}
+customElements.define('pagination-infinite', PaginationInfinite);
+
 class ProductRecommendations extends HTMLElement {
   constructor() {
     super();
@@ -1097,7 +1158,7 @@ class ProductRecommendations extends HTMLElement {
                 }
               } );
               splide.mount();
-              
+
           };
         })
         .catch(e => {
