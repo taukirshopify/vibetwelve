@@ -1054,8 +1054,8 @@ class PaginationInfinite extends HTMLElement{
 
   connectedCallback() {
 
-    this.containerElement = document.getElementById('product-grid');
-    this.paginationElement = document.querySelector('[data-pagination]');
+    let containerElement = document.getElementById('product-grid');
+    let paginationElement = document.querySelector('[data-pagination]');
 
     if( !this.paginationElement ){
       return;
