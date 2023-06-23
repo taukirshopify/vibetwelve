@@ -1066,13 +1066,6 @@ class PaginationInfinite extends HTMLElement{
     if (typeof this.nextPageLinkElement !== 'undefined' && this.nextPageLinkElement !== null) {
 
       const interval = setInterval( function() {
-
-      }, 5000 );
-
-      clearInterval(interval);
-      this.nextPageLinkElement.addEventListener('click', (event) => {
-        event.preventDefault();
-
         this.nextPageUrl = this.nextPageLinkElement.href;
         this.nextPageLinkElement.classList.add('loading');
         this.nextPageLinkElement.querySelector('.loading-overlay__spinner').classList.remove('hidden');
@@ -1102,9 +1095,9 @@ class PaginationInfinite extends HTMLElement{
         this.request.open('GET', this.nextPageUrl);
         this.request.responseType = 'document';
         this.request.send();
+      }, 5000 );
 
-      });
-
+      clearInterval(interval);
 
     }
 
