@@ -1057,11 +1057,11 @@ class PaginationInfinite extends HTMLElement{
     let containerElement = document.getElementById('product-grid');
     let paginationElement = this.querySelector('[data-pagination]');
 
-    if( !this.paginationElement ){
+    if( !paginationElement ){
       return;
     }
 
-    this.nextPageLinkElement = this.paginationElement.querySelector('a');
+    this.nextPageLinkElement = paginationElement.querySelector('a');
 
     if (typeof this.nextPageLinkElement !== 'undefined' && this.nextPageLinkElement !== null) {
 
@@ -1083,13 +1083,13 @@ class PaginationInfinite extends HTMLElement{
           var newContainer = this.request.responseXML.getElementById('product-grid');
           var newPagination = this.request.responseXML.querySelector('[data-pagination]');
 
-          this.containerElement.innerHTML = newContainer.innerHTML;
+          containerElement.innerHTML = newContainer.innerHTML;
 
           if (typeof newPagination === 'undefined') {
-            this.paginationElement.innerHTML = '';
+            paginationElement.innerHTML = '';
           } else {
             let url = newPagination.querySelector('[data-load-more]').href;
-            this.paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+            paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
           }
         }.bind(this);
 
