@@ -1071,15 +1071,15 @@ class PaginationInfinite extends HTMLElement{
 
         let request = new XMLHttpRequest();
         request.onreadystatechange = function success() {
-          if (!this.request.responseXML) {
+          if (!request.responseXML) {
             return;
           }
-          if (!this.request.readyState === 4 || !this.request.status === 200) {
+          if (!request.readyState === 4 || !request.status === 200) {
             return;
           }
 
-          var newContainer = this.request.responseXML.getElementById('product-grid');
-          var newPagination = this.request.responseXML.querySelector('[data-pagination]');
+          var newContainer = request.responseXML.getElementById('product-grid');
+          var newPagination = request.responseXML.querySelector('[data-pagination]');
 
           this.containerElement.innerHTML = newContainer.innerHTML;
 
