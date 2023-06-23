@@ -84,6 +84,7 @@
     },
     "b8126cdf-9327-4eb5-b96d-1cbe23e11649": {
       "type": "marquee",
+      "disabled": true,
       "blocks": {
         "57cd90c5-4b55-4e29-be94-66a497d7baf8": {
           "type": "text",
@@ -165,6 +166,7 @@
     },
     "4914e2b7-12e1-4652-b03d-8a55cd949117": {
       "type": "featured-banner",
+      "disabled": true,
       "blocks": {
         "6c683e2f-a6a9-4ecc-991d-70bd7059516d": {
           "type": "Benner",
@@ -194,6 +196,7 @@
     },
     "72586b2f-4702-4b7f-87fd-3f06464c176d": {
       "type": "custome-homeblog",
+      "disabled": true,
       "settings": {
         "padding_top": 56,
         "padding_bottom": 60,
@@ -202,6 +205,7 @@
     },
     "31bbb9bf-7a41-4baf-b729-eb7306fae9a2": {
       "type": "custome-recent",
+      "disabled": true,
       "blocks": {
         "f85c7611-ca85-4b79-8e61-fb40dda40a0f": {
           "type": "Collection",
