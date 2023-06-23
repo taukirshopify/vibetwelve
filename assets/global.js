@@ -1070,7 +1070,7 @@ class PaginationInfinite extends HTMLElement{
         this.nextPageUrl = this.nextPageLinkElement.href;
 
         let request = new XMLHttpRequest();
-        this.request.onreadystatechange = function success() {
+        request.onreadystatechange = function success() {
           if (!this.request.responseXML) {
             return;
           }
