@@ -1066,7 +1066,7 @@ class PaginationInfinite extends HTMLElement{
     if (typeof this.nextPageLinkElement !== 'undefined' && this.nextPageLinkElement !== null) {
 
       const interval = setInterval( function() {
-        console.log('test');
+
         this.nextPageUrl = this.nextPageLinkElement.href;
         this.nextPageLinkElement.classList.add('loading');
         this.nextPageLinkElement.querySelector('.loading-overlay__spinner').classList.remove('hidden');
