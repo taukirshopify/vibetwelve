@@ -3193,6 +3193,8 @@ details-disclosure > details {
   position: absolute;
   visibility: hidden;
   align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .section-collection-refresh .product-item:hover .card__content{
