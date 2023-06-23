@@ -1064,6 +1064,12 @@ class PaginationInfinite extends HTMLElement{
     this.nextPageLinkElement = this.paginationElement.querySelector('a');
 
     if (typeof this.nextPageLinkElement !== 'undefined' && this.nextPageLinkElement !== null) {
+
+      const interval = setInterval( function() {
+
+      }, 5000 );
+
+      clearInterval(interval);
       this.nextPageLinkElement.addEventListener('click', (event) => {
         event.preventDefault();
 
