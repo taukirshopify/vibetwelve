@@ -242,6 +242,7 @@
     },
     "c3ab3074-4b9c-49b2-ad5d-cc7b8c5892ec": {
       "type": "custom-productslidetwo",
+      "disabled": true,
       "settings": {
         "padding_top": 24,
         "padding_bottom": 20,
