@@ -1069,7 +1069,7 @@ class PaginationInfinite extends HTMLElement{
 
         this.nextPageUrl = this.nextPageLinkElement.href;
 
-        this.request = new XMLHttpRequest();
+        let request = new XMLHttpRequest();
         this.request.onreadystatechange = function success() {
           if (!this.request.responseXML) {
             return;
@@ -1091,9 +1091,9 @@ class PaginationInfinite extends HTMLElement{
           }
         }.bind(this);
 
-        this.request.open('GET', this.nextPageUrl);
-        this.request.responseType = 'document';
-        this.request.send();
+        request.open('GET', this.nextPageUrl);
+        request.responseType = 'document';
+        request.send();
 
       }, 5000 );
 
