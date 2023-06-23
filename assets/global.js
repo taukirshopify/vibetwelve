@@ -1054,7 +1054,14 @@ class PaginationInfinite extends HTMLElement{
 
   connectedCallback() {
 
-    this.nextPageLinkElement = paginationElement.querySelector('a');
+    this.containerElement = document.getElementById('product-grid');
+    this.paginationElement = document.querySelector('[data-pagination]');
+
+    if( !this.paginationElement ){
+      return;
+    }
+
+    this.nextPageLinkElement = this.paginationElement.querySelector('a');
 
     if (typeof this.nextPageLinkElement !== 'undefined' && this.nextPageLinkElement !== null) {
 
@@ -1076,13 +1083,13 @@ class PaginationInfinite extends HTMLElement{
           var newContainer = this.request.responseXML.getElementById('product-grid');
           var newPagination = this.request.responseXML.querySelector('[data-pagination]');
 
-          containerElement.innerHTML = newContainer.innerHTML;
+          this.containerElement.innerHTML = newContainer.innerHTML;
 
           if (typeof newPagination === 'undefined') {
-            paginationElement.innerHTML = '';
+            this.paginationElement.innerHTML = '';
           } else {
             let url = newPagination.querySelector('[data-load-more]').href;
-            paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+            this.paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
           }
         }.bind(this);
 
