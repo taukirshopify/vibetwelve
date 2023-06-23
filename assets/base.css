@@ -3180,7 +3180,9 @@ details-disclosure > details {
 }
 
 .section-collection-refresh .product-item .card__content{
-
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
 }
 
 @keyframes translatefull {
