@@ -1072,7 +1072,7 @@ class PaginationInfinite extends HTMLElement{
         this.nextPageLinkElement.querySelector('.loading-overlay__spinner').classList.remove('hidden');
 
         this.request = new XMLHttpRequest();
-        this.request.onreadystatechange = function success() {
+        this.request.onreadystatechange = function() {
           if (!this.request.responseXML) {
             return;
           }
