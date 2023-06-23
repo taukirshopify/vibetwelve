@@ -130,6 +130,7 @@
     },
     "ebb76d87-d0dc-4205-adda-9c2cc13caf5a": {
       "type": "custome-banner",
+      "disabled": true,
       "settings": {
         "img": "shopify:\/\/shop_images\/header.jpg",
         "h1": "WHAT ARE THOSE?",
