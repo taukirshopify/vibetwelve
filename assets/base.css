@@ -3175,6 +3175,10 @@ details-disclosure > details {
 }
 
 /* Collection Refresh */
+.section-collection-refresh .product-grid{
+  gap: 0px;
+}
+
 .section-collection-refresh .product-item{
   position: relative;
 }
