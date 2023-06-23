@@ -1068,8 +1068,6 @@ class PaginationInfinite extends HTMLElement{
       const interval = setInterval( function() {
 
         this.nextPageUrl = this.nextPageLinkElement.href;
-        this.nextPageLinkElement.classList.add('loading');
-        this.nextPageLinkElement.querySelector('.loading-overlay__spinner').classList.remove('hidden');
 
         this.request = new XMLHttpRequest();
         this.request.onreadystatechange = function success() {
@@ -1096,6 +1094,7 @@ class PaginationInfinite extends HTMLElement{
         this.request.open('GET', this.nextPageUrl);
         this.request.responseType = 'document';
         this.request.send();
+
       }, 5000 );
 
       //clearInterval(interval);
