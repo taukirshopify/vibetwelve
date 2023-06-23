@@ -1085,6 +1085,7 @@ class PaginationInfinite extends HTMLElement{
 
           if (typeof newPagination === 'undefined') {
             paginationElement.innerHTML = '';
+            clearInterval(interval);
           } else {
             let url = newPagination.querySelector('[data-load-more]').href;
             paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
@@ -1096,8 +1097,6 @@ class PaginationInfinite extends HTMLElement{
         request.send();
 
       }, 5000 );
-
-      clearInterval(interval);
 
     }
 
