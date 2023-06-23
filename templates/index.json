@@ -2,7 +2,6 @@
   "sections": {
     "25f33c12-be91-486a-894b-2c613a05b087": {
       "type": "marquee",
-      "disabled": true,
       "blocks": {
         "4a65c1e0-2e66-424e-bb1c-3f9deb1f3fc9": {
           "type": "text",
