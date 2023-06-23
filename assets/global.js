@@ -1084,8 +1084,6 @@ class PaginationInfinite extends HTMLElement{
           var newPagination = this.request.responseXML.querySelector('[data-pagination]');
 
           this.containerElement.innerHTML = newContainer.innerHTML;
-          this.nextPageLinkElement.classList.remove('loading');
-          this.nextPageLinkElement.querySelector('.loading-overlay__spinner').classList.add('hidden');
 
           if (typeof newPagination === 'undefined') {
             this.paginationElement.innerHTML = '';
