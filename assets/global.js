@@ -1064,6 +1064,7 @@ class PaginationInfinite extends HTMLElement{
     this.nextPageLinkElement = this.paginationElement.querySelector('a');
 
     if (typeof this.nextPageLinkElement !== 'undefined' && this.nextPageLinkElement !== null) {
+      this.nextPageLinkElement.click();
       this.nextPageLinkElement.addEventListener('click', (event) => {
         event.preventDefault();
 
