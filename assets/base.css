@@ -3202,6 +3202,10 @@ details-disclosure > details {
   visibility: visible;
 }
 
+.section-collection-refresh .product-item .card-information{
+  text-align: center;
+}
+
 @keyframes translatefull {
   from {
     transform: translateX(0);
