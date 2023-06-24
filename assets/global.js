@@ -1073,37 +1073,7 @@ class PaginationInfinite extends HTMLElement{
         let nextPageUrl = nextPageLinkElement.href;
 
         
-        request.onreadystatechange = function success() {
-          if (!request.responseXML) {
-            return;
-          }
-          if (!request.readyState === 4 || !request.status === 200) {
-            return;
-          }
-
-          var newContainer = request.responseXML.getElementById('product-grid');
-          var newPagination = request.responseXML.querySelector('[data-pagination]');
-
-          containerElement.innerHTML = newContainer.innerHTML;
-
-          let promise = new Promise( (resolve, reject) => {
-            newContainer.querySelectorAll('.product-item').forEach( async (item, index) => {
-              setTimeout( function(){
-                console.log( item );
-              }, 1000)
-            });
-          });
-
-          promise.then( () => {
-            if (typeof newPagination === 'undefined') {
-              paginationElement.innerHTML = '';
-            } else {
-              let url = newPagination.querySelector('[data-load-more]').href;
-              paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
-            }
-          });
-
-        }.bind(this);
+        
 
       }, 5000 );
 
@@ -1117,8 +1087,38 @@ class PaginationInfinite extends HTMLElement{
   fetchRequest(){
 
     let request = new XMLHttpRequest();
+    request.onreadystatechange = function success() {
+      if (!request.responseXML) {
+        return;
+      }
+      if (!request.readyState === 4 || !request.status === 200) {
+        return;
+      }
 
-    
+      var newContainer = request.responseXML.getElementById('product-grid');
+      var newPagination = request.responseXML.querySelector('[data-pagination]');
+
+      containerElement.innerHTML = newContainer.innerHTML;
+
+      let promise = new Promise( (resolve, reject) => {
+        newContainer.querySelectorAll('.product-item').forEach( async (item, index) => {
+          setTimeout( function(){
+            console.log( item );
+          }, 1000)
+        });
+      });
+
+      promise.then( () => {
+        if (typeof newPagination === 'undefined') {
+          paginationElement.innerHTML = '';
+        } else {
+          let url = newPagination.querySelector('[data-load-more]').href;
+          paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+        }
+      });
+
+    }.bind(this);
+
     request.open('GET', nextPageUrl);
     request.responseType = 'document';
     request.send();
