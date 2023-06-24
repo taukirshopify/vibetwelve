@@ -1096,14 +1096,14 @@ class PaginationInfinite extends HTMLElement{
 
           promise.then( () => {
 
-            if (typeof newPagination === 'undefined') {
-              paginationElement.innerHTML = '';
-            } else {
-              let url = newPagination.querySelector('[data-load-more]').href;
-              paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
-            }
-
           });
+
+          if (typeof newPagination === 'undefined') {
+            paginationElement.innerHTML = '';
+          } else {
+            let url = newPagination.querySelector('[data-load-more]').href;
+            paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+          }
 
         }.bind(this);
 
