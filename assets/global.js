@@ -1105,14 +1105,14 @@ class PaginationInfinite extends HTMLElement{
       if (!request.readyState === 4 || !request.status === 200) {
         return;
       }
-
-      return request;
-
     }
 
     request.open('GET', nextPageUrl);
     request.responseType = 'document';
     request.send();
+
+    return request;
+
   }
 }
 customElements.define('pagination-infinite', PaginationInfinite);
