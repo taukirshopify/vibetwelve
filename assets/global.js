@@ -1065,13 +1065,26 @@ class PaginationInfinite extends HTMLElement{
 
     if (typeof nextPageLinkElement !== 'undefined' && nextPageLinkElement !== null) {
 
-      this.fetchRequest( nextPageLinkElement );
+      let request = this.fetchRequest( nextPageLinkElement );
 
       // const interval = setInterval( function() {
       //   
       // }, 5000 );
 
       //clearInterval(interval);
+
+
+      var newContainer = request.responseXML.getElementById('product-grid');
+      var newPagination = request.responseXML.querySelector('[data-pagination]');
+
+      containerElement.innerHTML = newContainer.innerHTML;
+
+      if (typeof newPagination === 'undefined') {
+        paginationElement.innerHTML = '';
+      } else {
+        let url = newPagination.querySelector('[data-load-more]').href;
+        paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+      }
 
     }
 
@@ -1091,18 +1104,6 @@ class PaginationInfinite extends HTMLElement{
 
       if (!request.readyState === 4 || !request.status === 200) {
         return;
-      }
-
-      var newContainer = request.responseXML.getElementById('product-grid');
-      var newPagination = request.responseXML.querySelector('[data-pagination]');
-
-      containerElement.innerHTML = newContainer.innerHTML;
-
-      if (typeof newPagination === 'undefined') {
-        paginationElement.innerHTML = '';
-      } else {
-        let url = newPagination.querySelector('[data-load-more]').href;
-        paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
       }
 
     }
