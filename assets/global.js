@@ -1081,8 +1081,10 @@ class PaginationInfinite extends HTMLElement{
           var newContainer = request.responseXML.getElementById('product-grid');
           var newPagination = request.responseXML.querySelector('[data-pagination]');
 
-          containerElement.innerHTML = newContainer.innerHTML;
-          console.log( newContainer.innerHTML );
+          //containerElement.innerHTML = newContainer.innerHTML;
+          newContainer.querySelector('.product-item').forEach( (item) => {
+
+          });
 
           if (typeof newPagination === 'undefined') {
             paginationElement.innerHTML = '';
