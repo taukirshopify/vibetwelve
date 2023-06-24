@@ -1089,7 +1089,11 @@ class PaginationInfinite extends HTMLElement{
     let request = new XMLHttpRequest();
     request.onreadystatechange = function success() {
 
-      if (!request.responseXML || !request.readyState === 4 || !request.status === 200) {
+      if (!request.responseXML) {
+        return;
+      }
+      
+      if (!request.readyState === 4 || !request.status === 200) {
         return;
       }
 
