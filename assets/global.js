@@ -1098,13 +1098,19 @@ class PaginationInfinite extends HTMLElement{
 
       containerElement.innerHTML = newContainer.innerHTML;
 
+      if (typeof newPagination === 'undefined') {
+        paginationElement.innerHTML = '';
+      } else {
+        let url = newPagination.querySelector('[data-load-more]').href;
+        paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+      }
+
     }
 
     request.open('GET', nextPageUrl);
     request.responseType = 'document';
     request.send();
   }
-  
 }
 customElements.define('pagination-infinite', PaginationInfinite);
 
