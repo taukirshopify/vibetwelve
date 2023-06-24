@@ -1106,7 +1106,7 @@ class PaginationInfinite extends HTMLElement{
           // }
 
           var array = ['some', 'array', 'containing', 'words'];
-          var interval = 1000; // how much time should the delay between two iterations be (in milliseconds)?
+          var interval = 1000; 
           var promise = Promise.resolve();
           array.forEach(function (el) {
             promise = promise.then(function () {
