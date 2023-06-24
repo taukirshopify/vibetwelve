@@ -1092,7 +1092,7 @@ class PaginationInfinite extends HTMLElement{
       if (!request.responseXML) {
         return;
       }
-      
+
       if (!request.readyState === 4 || !request.status === 200) {
         return;
       }
@@ -1102,24 +1102,7 @@ class PaginationInfinite extends HTMLElement{
 
       containerElement.innerHTML = newContainer.innerHTML;
 
-      let promise = new Promise( (resolve, reject) => {
-        newContainer.querySelectorAll('.product-item').forEach( async (item, index) => {
-          setTimeout( function(){
-            console.log( item );
-          }, 1000)
-        });
-      });
-
-      promise.then( () => {
-        if (typeof newPagination === 'undefined') {
-          paginationElement.innerHTML = '';
-        } else {
-          let url = newPagination.querySelector('[data-load-more]').href;
-          paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
-        }
-      });
-
-    }.bind(this);
+    }
 
     request.open('GET', nextPageUrl);
     request.responseType = 'document';
