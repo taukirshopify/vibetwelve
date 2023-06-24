@@ -1072,7 +1072,7 @@ class PaginationInfinite extends HTMLElement{
 
         let nextPageUrl = nextPageLinkElement.href;
 
-        let request = new XMLHttpRequest();
+        
         request.onreadystatechange = function success() {
           if (!request.responseXML) {
             return;
@@ -1105,10 +1105,6 @@ class PaginationInfinite extends HTMLElement{
 
         }.bind(this);
 
-        request.open('GET', nextPageUrl);
-        request.responseType = 'document';
-        request.send();
-
       }, 5000 );
 
       //clearInterval(interval);
@@ -1120,8 +1116,14 @@ class PaginationInfinite extends HTMLElement{
 
   fetchRequest(){
 
+    let request = new XMLHttpRequest();
+
+    
+    request.open('GET', nextPageUrl);
+    request.responseType = 'document';
+    request.send();
   }
-  
+
 }
 customElements.define('pagination-infinite', PaginationInfinite);
 
