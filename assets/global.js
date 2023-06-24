@@ -1106,6 +1106,8 @@ class PaginationInfinite extends HTMLElement{
         return;
       }
 
+      return request;
+
     }
 
     request.open('GET', nextPageUrl);
