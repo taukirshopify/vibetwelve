@@ -1082,13 +1082,13 @@ class PaginationInfinite extends HTMLElement{
           var newPagination = request.responseXML.querySelector('[data-pagination]');
 
           //containerElement.innerHTML = newContainer.innerHTML;
-          newContainer.querySelectorAll('.product-item').forEach( (item, index) => {
-            containerElement.querySelectorAll('.product-item').forEach( (element, i) => {
-              setTimeout( function(){
-                console.log( index );
-              }, 200);
-            })
-          });
+          // newContainer.querySelectorAll('.product-item').forEach( (item, index) => {
+          //   containerElement.querySelectorAll('.product-item').forEach( (element, i) => {
+          //     setTimeout( function(){
+          //       
+          //     }, 200);
+          //   })
+          // });
 
           if (typeof newPagination === 'undefined') {
             paginationElement.innerHTML = '';
