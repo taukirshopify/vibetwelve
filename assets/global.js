@@ -1078,7 +1078,9 @@ class PaginationInfinite extends HTMLElement{
   }
 
 
-  fetchRequest(){
+  fetchRequest( nextPageElement ){
+
+    let nextPageUrl = nextPageElement.href;
 
     let request = new XMLHttpRequest();
     request.onreadystatechange = function success() {
