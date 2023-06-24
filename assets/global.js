@@ -1086,24 +1086,40 @@ class PaginationInfinite extends HTMLElement{
 
           containerElement.innerHTML = newContainer.innerHTML;
 
-          let promise = new Promise( (resolve, reject) => {
-            newContainer.querySelectorAll('.product-item').forEach( async (item, index) => {
-              setTimeout( function(){
-                console.log( item );
-              }, 1000)
+          // let promise = new Promise( (resolve, reject) => {
+          //   newContainer.querySelectorAll('.product-item').forEach( async (item, index) => {
+          //     setTimeout( function(){
+          //       console.log( item );
+          //     }, 1000)
+          //   });
+          // });
+
+          // promise.then( () => {
+
+          // });
+
+          // if (typeof newPagination === 'undefined') {
+          //   paginationElement.innerHTML = '';
+          // } else {
+          //   let url = newPagination.querySelector('[data-load-more]').href;
+          //   paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+          // }
+
+          var array = ['some', 'array', 'containing', 'words'];
+          var interval = 1000; // how much time should the delay between two iterations be (in milliseconds)?
+          var promise = Promise.resolve();
+          array.forEach(function (el) {
+            promise = promise.then(function () {
+              console.log(el);
+              return new Promise(function (resolve) {
+                setTimeout(resolve, interval);
+              });
             });
           });
 
-          promise.then( () => {
-
+          promise.then(function () {
+            console.log('Loop finished.');
           });
-
-          if (typeof newPagination === 'undefined') {
-            paginationElement.innerHTML = '';
-          } else {
-            let url = newPagination.querySelector('[data-load-more]').href;
-            paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
-          }
 
         }.bind(this);
 
