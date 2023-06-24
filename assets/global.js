@@ -1104,7 +1104,7 @@ class PaginationInfinite extends HTMLElement{
     request.responseType = 'document';
     request.send();
   }
-
+  
 }
 customElements.define('pagination-infinite', PaginationInfinite);
 
