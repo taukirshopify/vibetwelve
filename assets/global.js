@@ -1065,6 +1065,9 @@ class PaginationInfinite extends HTMLElement{
 
     if (typeof nextPageLinkElement !== 'undefined' && nextPageLinkElement !== null) {
 
+
+
+
       const interval = setInterval( function() {
 
         let nextPageUrl = nextPageLinkElement.href;
@@ -1081,14 +1084,15 @@ class PaginationInfinite extends HTMLElement{
           var newContainer = request.responseXML.getElementById('product-grid');
           var newPagination = request.responseXML.querySelector('[data-pagination]');
 
-          //containerElement.innerHTML = newContainer.innerHTML;
-          // newContainer.querySelectorAll('.product-item').forEach( (item, index) => {
-          //   containerElement.querySelectorAll('.product-item').forEach( (element, i) => {
-          //     setTimeout( function(){
-          //       
-          //     }, 200);
-          //   })
-          // });
+          const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+
+          containerElement.innerHTML = newContainer.innerHTML;
+          newContainer.querySelectorAll('.product-item').forEach( (item, index) => {
+            containerElement.querySelectorAll('.product-item').forEach( (element, i) => {
+              await sleep(1000);
+              console.log(index);
+            })
+          });
 
           if (typeof newPagination === 'undefined') {
             paginationElement.innerHTML = '';
