@@ -1082,7 +1082,7 @@ class PaginationInfinite extends HTMLElement{
           var newPagination = request.responseXML.querySelector('[data-pagination]');
 
           //containerElement.innerHTML = newContainer.innerHTML;
-          newContainer.querySelector('.product-item').forEach( (item) => {
+          newContainer.querySelectorAll('.product-item').forEach( (item) => {
             console.log( element );
           });
 
