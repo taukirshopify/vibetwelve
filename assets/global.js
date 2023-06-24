@@ -1116,6 +1116,12 @@ class PaginationInfinite extends HTMLElement{
     }
 
   }
+
+
+  fetchRequest(){
+
+  }
+  
 }
 customElements.define('pagination-infinite', PaginationInfinite);
 
