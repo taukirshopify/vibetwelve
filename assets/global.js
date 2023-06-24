@@ -1085,6 +1085,10 @@ class PaginationInfinite extends HTMLElement{
           var newPagination = request.responseXML.querySelector('[data-pagination]');
 
           containerElement.innerHTML = newContainer.innerHTML;
+
+          let promise = new Promise( (request, reject) => {
+
+          })
           newContainer.querySelectorAll('.product-item').forEach( async (item, index) => {
             setTimeout( function(){
               console.log( item );
