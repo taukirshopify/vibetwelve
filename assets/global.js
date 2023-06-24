@@ -1065,53 +1065,41 @@ class PaginationInfinite extends HTMLElement{
 
     if (typeof nextPageLinkElement !== 'undefined' && nextPageLinkElement !== null) {
 
-      this.fetchRequest( nextPageLinkElement );
+      const interval = setInterval( function() {
 
-      // const interval = setInterval( function() {
-      //   
-      // }, 5000 );
+        let nextPageUrl = nextPageLinkElement.href;
+
+        let request = new XMLHttpRequest();
+        request.onreadystatechange = function success() {
+          if (!request.responseXML) {
+            return;
+          }
+          if (!request.readyState === 4 || !request.status === 200) {
+            return;
+          }
+
+          var newContainer = request.responseXML.getElementById('product-grid');
+          var newPagination = request.responseXML.querySelector('[data-pagination]');
+
+          containerElement.innerHTML = newContainer.innerHTML;
+
+          if (typeof newPagination === 'undefined') {
+            paginationElement.innerHTML = '';
+          } else {
+            let url = newPagination.querySelector('[data-load-more]').href;
+            paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+          }
+        }.bind(this);
+
+        request.open('GET', nextPageUrl);
+        request.responseType = 'document';
+        request.send();
+
+      }, 5000 );
 
       //clearInterval(interval);
 
-
-      var newContainer = request.responseXML.getElementById('product-grid');
-      var newPagination = request.responseXML.querySelector('[data-pagination]');
-
-      containerElement.innerHTML = newContainer.innerHTML;
-
-      if (typeof newPagination === 'undefined') {
-        paginationElement.innerHTML = '';
-      } else {
-        let url = newPagination.querySelector('[data-load-more]').href;
-        paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
-      }
-
     }
-
-  }
-
-
-  fetchRequest( nextPageElement ){
-
-    let nextPageUrl = nextPageElement.href;
-
-    let request = new XMLHttpRequest();
-    request.onreadystatechange = function success() {
-
-      if (!request.responseXML) {
-        return;
-      }
-
-      if (!request.readyState === 4 || !request.status === 200) {
-        return;
-      }
-    }
-
-    request.open('GET', nextPageUrl);
-    request.responseType = 'document';
-    request.send();
-
-    return request;
 
   }
 }
