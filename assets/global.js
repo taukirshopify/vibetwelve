@@ -1105,22 +1105,6 @@ class PaginationInfinite extends HTMLElement{
           //   paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
           // }
 
-          var array = ['some', 'array', 'containing', 'words'];
-          var interval = 1000; 
-          var promise = Promise.resolve();
-          array.forEach(function (el) {
-            promise = promise.then(function () {
-              console.log(el);
-              return new Promise(function (resolve) {
-                setTimeout(resolve, interval);
-              });
-            });
-          });
-
-          promise.then(function () {
-            console.log('Loop finished.');
-          });
-
         }.bind(this);
 
         request.open('GET', nextPageUrl);
