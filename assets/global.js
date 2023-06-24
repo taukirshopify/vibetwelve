@@ -1070,7 +1070,7 @@ class PaginationInfinite extends HTMLElement{
         let nextPageUrl = nextPageLinkElement.href;
 
         let request = new XMLHttpRequest();
-        request.onreadystatechange = function success() {
+        request.onreadystatechange = function(){
           if (!request.responseXML) {
             return;
           }
@@ -1089,7 +1089,7 @@ class PaginationInfinite extends HTMLElement{
             let url = newPagination.querySelector('[data-load-more]').href;
             paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
           }
-        }.bind(this);
+        }
 
         request.open('GET', nextPageUrl);
         request.responseType = 'document';
