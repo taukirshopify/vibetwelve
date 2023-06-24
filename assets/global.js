@@ -1083,7 +1083,9 @@ class PaginationInfinite extends HTMLElement{
 
           //containerElement.innerHTML = newContainer.innerHTML;
           newContainer.querySelectorAll('.product-item').forEach( (item, index) => {
-            
+            containerElement.querySelectorAll('.product-item').forEach( (element, index) => {
+
+            })
           });
 
           if (typeof newPagination === 'undefined') {
