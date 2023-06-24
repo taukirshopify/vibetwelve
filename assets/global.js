@@ -1065,7 +1065,7 @@ class PaginationInfinite extends HTMLElement{
 
     if (typeof nextPageLinkElement !== 'undefined' && nextPageLinkElement !== null) {
 
-      let request = this.fetchRequest( nextPageLinkElement );
+      this.fetchRequest( nextPageLinkElement );
 
       // const interval = setInterval( function() {
       //   
