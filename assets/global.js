@@ -1086,20 +1086,25 @@ class PaginationInfinite extends HTMLElement{
 
           containerElement.innerHTML = newContainer.innerHTML;
 
-          let promise = new Promise( (request, reject) => {
-
+          let promise = new Promise( (resolve, reject) => {
+            newContainer.querySelectorAll('.product-item').forEach( async (item, index) => {
+              setTimeout( function(){
+                console.log( item );
+              }, 1000)
+            });
           });
 
           promise.then( () => {
 
+            if (typeof newPagination === 'undefined') {
+              paginationElement.innerHTML = '';
+            } else {
+              let url = newPagination.querySelector('[data-load-more]').href;
+              paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+            }
+
           });
 
-          if (typeof newPagination === 'undefined') {
-            paginationElement.innerHTML = '';
-          } else {
-            let url = newPagination.querySelector('[data-load-more]').href;
-            paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
-          }
         }.bind(this);
 
         request.open('GET', nextPageUrl);
