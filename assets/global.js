@@ -1107,7 +1107,7 @@ class PaginationInfinite extends HTMLElement{
 
           var array = ['some', 'array', 'containing', 'words'];
           var interval = 1000; 
-          //var promise = Promise.resolve();
+          var promise = new Promise();
           array.forEach(function (el) {
             promise = promise.then(function () {
               console.log(el);
