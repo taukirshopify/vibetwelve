@@ -1086,6 +1086,9 @@ class PaginationInfinite extends HTMLElement{
 
           containerElement.innerHTML = newContainer.innerHTML;
           newContainer.querySelectorAll('.product-item').forEach( async (item, index) => {
+            setTimeout( function(){
+              console.log( item );
+            }, 1000)
             // containerElement.querySelectorAll('.product-item').forEach( async (element, i) => {
               
             // })
