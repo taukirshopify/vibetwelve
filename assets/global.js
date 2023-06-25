@@ -1057,6 +1057,8 @@ class PaginationInfinite extends HTMLElement{
   }
 
   fetchRequest(){
+
+    let self = this;
     let containerElement = document.getElementById('product-grid');
     let paginationElement = document.querySelector('[data-pagination]');
 
@@ -1098,7 +1100,7 @@ class PaginationInfinite extends HTMLElement{
           });
 
           promise.then( function(){
-            parent.fetchRequest();
+            self.fetchRequest();
           });
 
           if (typeof newPagination === 'undefined') {
