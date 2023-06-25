@@ -1055,7 +1055,7 @@ class PaginationInfinite extends HTMLElement{
   connectedCallback() {
     let self = this;
     setTimeout( function(){
-      this.fetchRequest();
+      self.fetchRequest();
     }, 2000);
   }
 
@@ -1102,7 +1102,7 @@ class PaginationInfinite extends HTMLElement{
         });
 
         promise.then( function(){
-          self.fetchRequest();
+          _self.fetchRequest();
         });
 
         if (typeof newPagination === 'undefined') {
