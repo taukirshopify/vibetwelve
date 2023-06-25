@@ -18,7 +18,7 @@
             </ul>
 
             {%- if paginate.pages > 1 -%}
-                {% render 'paginate-refresh', paginate: paginate, section: section %}
+                {% render 'paginate-refresh', paginate: paginate %}
             {%- endif -%}
         {% endpaginate %}
     </div>
