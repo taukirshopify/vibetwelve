@@ -1097,7 +1097,7 @@ class PaginationInfinite extends HTMLElement{
         request.responseType = 'document';
         request.send();
 
-      }, 10000 );
+      }, 7000 );
 
       //clearInterval(interval);
 
