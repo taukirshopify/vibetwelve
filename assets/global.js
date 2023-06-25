@@ -1053,7 +1053,10 @@ class PaginationInfinite extends HTMLElement{
   }
 
   connectedCallback() {
+    this.fetchRequest();
+  }
 
+  fetchRequest(){
     let containerElement = document.getElementById('product-grid');
     let paginationElement = document.querySelector('[data-pagination]');
 
@@ -1082,9 +1085,6 @@ class PaginationInfinite extends HTMLElement{
           var newPagination = request.responseXML.querySelector('[data-pagination]');
           
           containerElement.innerHTML = newContainer.innerHTML;
-
-          console.log( newPagination );
-
           if (typeof newPagination === 'undefined') {
             paginationElement.innerHTML = '';
           } else {
@@ -1102,7 +1102,6 @@ class PaginationInfinite extends HTMLElement{
       //clearInterval(interval);
 
     }
-
   }
 }
 customElements.define('pagination-infinite', PaginationInfinite);
