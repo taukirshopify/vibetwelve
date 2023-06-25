@@ -20,9 +20,9 @@
                 {%- if paginate.next -%}
                     <a class="button button--secondary hide hidden" title="{{ 'general.pagination.next' | t }}" 
                         href="{% if refresh %}
-                            {{ collection.url | append: paginate.next.url | append: '&view=alternate' }}
+                            {{ collection.url | append: paginate.next.url }}
                         {% else %}
-                            {{ paginate.next.url | append: '&view=alternate' }}
+                            {{ paginate.next.url }}
                         {% endif %}" aria-label="{{ 'general.pagination.next' | t }}" rel="next" data-load-more>
                         <span>{{ 'Load more' }}</span>
                         <div class="loading-overlay__spinner hidden">
