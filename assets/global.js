@@ -1094,6 +1094,7 @@ class PaginationInfinite extends HTMLElement{
 
         products.forEach( function(el, index){
           promise = promise.then( function(){
+            console.log( Math.random() * 10 );
             containerElement.querySelectorAll('.product-item')[index].innerHTML = el.innerHTML;
             return new Promise( function(resolve) {
               setTimeout( resolve, interval );
