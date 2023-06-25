@@ -1089,7 +1089,11 @@ class PaginationInfinite extends HTMLElement{
           let products = newContainer.querySelectorAll('.product-item');
 
           products.forEach( function(el){
-
+            promise = promise.then( function(){
+              return new Promise( function(resolve) {
+                setTimeout( resolve, interval );
+              });
+            });
           });
 
           if (typeof newPagination === 'undefined') {
