@@ -1,0 +1,45 @@
+<div class="section-collection-refresh section-{{ section.id }}-padding">
+    <div class="container">
+        {%- paginate collection.products by 12 -%}
+            <ul id="product-grid" data-id="{{ section.id }}" class="
+                grid product-grid grid--2-col-tablet-down
+                grid--4-col-desktop">
+                {%- for product in section.settings.collection.products limit: 12 -%}
+                    {% assign lazy_load = false %}
+                    {%- if forloop.index > 2 -%}
+                        {%- assign lazy_load = true -%}
+                    {%- endif -%}
+                    <li class="grid__item product-item">
+                        {% render 'product-grid-minimal',
+                            card_product: product
+                        %}
+                    </li>
+                {%- endfor -%}
+            </ul>
+
+            {%- if paginate.pages > 1 -%}
+                {% render 'paginate-refresh', paginate: paginate, section: section %}
+            {%- endif -%}
+        {% endpaginate %}
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection Refresh",
+    "settings": [
+        {
+            "type": "collection",
+            "id": "collection",
+            "label": "Select collection"
+        }
+    ],
+    "presets": [
+      {
+        "category": "text",
+        "name": "Collection Refresh",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
