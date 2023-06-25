@@ -1097,6 +1097,10 @@ class PaginationInfinite extends HTMLElement{
             });
           });
 
+          promise.then( function(){
+            console.log("Query Completed");
+          });
+
           if (typeof newPagination === 'undefined') {
             paginationElement.innerHTML = '';
           } else {
