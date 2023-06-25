@@ -1065,7 +1065,7 @@ class PaginationInfinite extends HTMLElement{
 
     if (typeof nextPageLinkElement !== 'undefined' && nextPageLinkElement !== null) {
 
-      const interval = setInterval( function() {
+      //const interval = setInterval( function() {
 
         let nextPageUrl = nextPageLinkElement.href;
 
@@ -1097,7 +1097,7 @@ class PaginationInfinite extends HTMLElement{
         request.responseType = 'document';
         request.send();
 
-      }, 5000 );
+      //}, 5000 );
 
       //clearInterval(interval);
 
