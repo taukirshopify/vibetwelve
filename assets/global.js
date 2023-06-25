@@ -1086,7 +1086,7 @@ class PaginationInfinite extends HTMLElement{
           if (typeof newPagination === 'undefined') {
             paginationElement.innerHTML = '';
           } else {
-            let url = newPagination.querySelector('[data-load-more]').href+'&view=alternate';
+            let url = newPagination.querySelector('[data-load-more]');
             paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
           }
         }
