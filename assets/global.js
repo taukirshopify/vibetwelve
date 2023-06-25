@@ -1109,6 +1109,8 @@ class PaginationInfinite extends HTMLElement{
         request.responseType = 'document';
         request.send();
 
+        console.log("Query Completed");
+
       //}, 7000 );
 
       //clearInterval(interval);
