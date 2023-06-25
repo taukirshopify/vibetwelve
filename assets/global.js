@@ -1053,7 +1053,7 @@ class PaginationInfinite extends HTMLElement{
   }
 
   connectedCallback() {
-
+    let self = this;
     setTimeout( function(){
       this.fetchRequest();
     }, 2000);
@@ -1061,7 +1061,7 @@ class PaginationInfinite extends HTMLElement{
 
   fetchRequest(){
 
-    let self = this;
+    let _self = this;
     let containerElement = document.getElementById('product-grid');
     let paginationElement = document.querySelector('[data-pagination]');
 
