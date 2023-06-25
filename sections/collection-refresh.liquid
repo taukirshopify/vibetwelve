@@ -1,3 +1,5 @@
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
 <div class="section-collection-refresh section-{{ section.id }}-padding">
     <div class="container">
         {%- paginate section.settings.collection.products by 12 -%}
