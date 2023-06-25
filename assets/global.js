@@ -1053,7 +1053,10 @@ class PaginationInfinite extends HTMLElement{
   }
 
   connectedCallback() {
-    this.fetchRequest();
+
+    setTimeout( function(){
+      this.fetchRequest();
+    }, 2000);
   }
 
   fetchRequest(){
