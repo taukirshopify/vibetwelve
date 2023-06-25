@@ -1086,16 +1086,12 @@ class PaginationInfinite extends HTMLElement{
         var newContainer = request.responseXML.getElementById('product-grid');
         var newPagination = request.responseXML.querySelector('[data-pagination]');
         
-        //containerElement.innerHTML = newContainer.innerHTML;
         let promise = Promise.resolve();
         let products = newContainer.querySelectorAll('.product-item');
 
         products.forEach( function(el, index){
           promise = promise.then( function(){
-
             containerElement.querySelectorAll('.product-item')[index].innerHTML = el.innerHTML;
-
-
             return new Promise( function(resolve) {
               setTimeout( resolve, interval );
             });
