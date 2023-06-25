@@ -1086,7 +1086,7 @@ class PaginationInfinite extends HTMLElement{
           
           //containerElement.innerHTML = newContainer.innerHTML;
           newContainer.querySelectorAll('.product-item');
-
+          let promise = Promise.resolve();
           if (typeof newPagination === 'undefined') {
             paginationElement.innerHTML = '';
           } else {
