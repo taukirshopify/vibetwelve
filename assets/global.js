@@ -1071,52 +1071,51 @@ class PaginationInfinite extends HTMLElement{
     if (typeof nextPageLinkElement !== 'undefined' && nextPageLinkElement !== null) {
 
       //const interval = setInterval( function() {
-        let interval = 1000;
-        let nextPageUrl = nextPageLinkElement.href+'&view=alternate';
+      let interval = 1000;
+      let nextPageUrl = nextPageLinkElement.href+'&view=alternate';
 
-        let request = new XMLHttpRequest();
-        request.onreadystatechange = function(){
-          if (!request.responseXML) {
-            return;
-          }
-          if (!request.readyState === 4 || !request.status === 200) {
-            return;
-          }
-
-          var newContainer = request.responseXML.getElementById('product-grid');
-          var newPagination = request.responseXML.querySelector('[data-pagination]');
-          
-          //containerElement.innerHTML = newContainer.innerHTML;
-          let promise = Promise.resolve();
-          let products = newContainer.querySelectorAll('.product-item');
-
-          products.forEach( function(el){
-            promise = promise.then( function(){
-              console.log( el );
-              return new Promise( function(resolve) {
-                setTimeout( resolve, interval );
-              });
-            });
-          });
-
-          promise.then( function(){
-            self.fetchRequest();
-          });
-
-          if (typeof newPagination === 'undefined') {
-            paginationElement.innerHTML = '';
-          } else {
-            let url = newPagination.querySelector('[data-load-more]');
-            paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
-          }
+      let request = new XMLHttpRequest();
+      request.onreadystatechange = function(){
+        if (!request.responseXML) {
+          return;
+        }
+        if (!request.readyState === 4 || !request.status === 200) {
+          return;
         }
 
-        request.open('GET', nextPageUrl);
-        request.responseType = 'document';
-        request.send();
+        var newContainer = request.responseXML.getElementById('product-grid');
+        var newPagination = request.responseXML.querySelector('[data-pagination]');
+        
+        //containerElement.innerHTML = newContainer.innerHTML;
+        let promise = Promise.resolve();
+        let products = newContainer.querySelectorAll('.product-item');
+
+        products.forEach( function(el){
+          promise = promise.then( function(){
+            console.log( el );
+            return new Promise( function(resolve) {
+              setTimeout( resolve, interval );
+            });
+          });
+        });
+
+        promise.then( function(){
+          self.fetchRequest();
+        });
+
+        if (typeof newPagination === 'undefined') {
+          paginationElement.innerHTML = '';
+        } else {
+          let url = newPagination.querySelector('[data-load-more]');
+          paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+        }
+      }
+
+      request.open('GET', nextPageUrl);
+      request.responseType = 'document';
+      request.send();
 
       //}, 7000 );
-
       //clearInterval(interval);
 
     }
