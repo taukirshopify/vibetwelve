@@ -1083,6 +1083,8 @@ class PaginationInfinite extends HTMLElement{
           
           containerElement.innerHTML = newContainer.innerHTML;
 
+          console.log( newPagination );
+
           if (typeof newPagination === 'undefined') {
             paginationElement.innerHTML = '';
           } else {
