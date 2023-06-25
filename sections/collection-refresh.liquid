@@ -9,7 +9,7 @@
                     {%- if forloop.index > 2 -%}
                         {%- assign lazy_load = true -%}
                     {%- endif -%}
-                    <li class="grid__item product-item wow fadeInUp" data-wow-delay="{{ forloop.index }}s">
+                    <li class="grid__item product-item wow fadeInUp" data-wow-delay="{{ forloop.index | divided_by: 10 }}s">
                         {% render 'product-grid-minimal',
                             card_product: product
                         %}
