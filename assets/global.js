@@ -1098,7 +1098,7 @@ class PaginationInfinite extends HTMLElement{
           });
 
           promise.then( function(){
-            console.log("Query Completed");
+            this.fetchRequest();
           });
 
           if (typeof newPagination === 'undefined') {
