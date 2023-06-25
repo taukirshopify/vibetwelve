@@ -1093,7 +1093,7 @@ class PaginationInfinite extends HTMLElement{
         products.forEach( function(el, index){
           promise = promise.then( function(){
 
-            containerElement.querySelectorAll('.product-item')[index] = el.innerHTML;
+            containerElement.querySelectorAll('.product-item')[index].innerHTML = el.innerHTML;
 
 
             return new Promise( function(resolve) {
