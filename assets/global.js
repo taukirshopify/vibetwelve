@@ -1092,9 +1092,7 @@ class PaginationInfinite extends HTMLElement{
 
         products.forEach( function(el){
           promise = promise.then( function(){
-            
-            
-
+            console.log( el );
             return new Promise( function(resolve) {
               setTimeout( resolve, interval );
             });
