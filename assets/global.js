@@ -1065,39 +1065,39 @@ class PaginationInfinite extends HTMLElement{
 
     if (typeof nextPageLinkElement !== 'undefined' && nextPageLinkElement !== null) {
 
-      //const interval = setInterval( function() {
+      // const interval = setInterval( function() {
 
-        let nextPageUrl = nextPageLinkElement.href;
+      //   let nextPageUrl = nextPageLinkElement.href;
 
-        let request = new XMLHttpRequest();
-        request.onreadystatechange = function(){
-          if (!request.responseXML) {
-            return;
-          }
-          if (!request.readyState === 4 || !request.status === 200) {
-            return;
-          }
+      //   let request = new XMLHttpRequest();
+      //   request.onreadystatechange = function(){
+      //     if (!request.responseXML) {
+      //       return;
+      //     }
+      //     if (!request.readyState === 4 || !request.status === 200) {
+      //       return;
+      //     }
 
-          var newContainer = request.responseXML.getElementById('product-grid');
-          var newPagination = request.responseXML.querySelector('[data-pagination]');
+      //     var newContainer = request.responseXML.getElementById('product-grid');
+      //     var newPagination = request.responseXML.querySelector('[data-pagination]');
           
-          containerElement.innerHTML = newContainer.innerHTML;
+      //     containerElement.innerHTML = newContainer.innerHTML;
 
-          console.log( newPagination );
+      //     console.log( newPagination );
 
-          if (typeof newPagination === 'undefined') {
-            paginationElement.innerHTML = '';
-          } else {
-            let url = newPagination.querySelector('[data-load-more]');
-            paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
-          }
-        }
+      //     if (typeof newPagination === 'undefined') {
+      //       paginationElement.innerHTML = '';
+      //     } else {
+      //       let url = newPagination.querySelector('[data-load-more]');
+      //       paginationElement.querySelector('[data-load-more]').setAttribute( 'href', url );
+      //     }
+      //   }
 
-        request.open('GET', nextPageUrl);
-        request.responseType = 'document';
-        request.send();
+      //   request.open('GET', nextPageUrl);
+      //   request.responseType = 'document';
+      //   request.send();
 
-      //}, 5000 );
+      // }, 5000 );
 
       //clearInterval(interval);
 
