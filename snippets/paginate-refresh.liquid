@@ -18,7 +18,7 @@
         <div class="block-pagination__infinite">
             <div class="pagination-inner" data-pagination>
                 {%- if paginate.next -%}
-                    <a class="button button--secondary hide hidden" title="{{ 'general.pagination.next' | t }}" href="{{ collection.url | append: paginate.next.url | append: '&view=alternate' }}" aria-label="{{ 'general.pagination.next' | t }}" rel="next" data-load-more>
+                    <a class="button button--secondary hide hidden" title="{{ 'general.pagination.next' | t }}" href="{{ collection.url | append: paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}" rel="next" data-load-more>
                         <span>{{ 'Load more' }}</span>
                         <div class="loading-overlay__spinner hidden">
                             <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
